@@ -1,0 +1,50 @@
+{
+  "descriptive": {
+    "data": [12, 15, 12, 18, 22, 25, 22, 30, 14, 18],
+    "expected": {
+      "n": 10,
+      "mean": 18.8,
+      "median": 18.0,
+      "mode": [12, 18, 22],
+      "sampleStandardDeviation": 5.921711464320654,
+      "populationStandardDeviation": 5.617828762074906,
+      "variance": 35.06666666666667,
+      "minimum": 12,
+      "maximum": 30,
+      "range": 18,
+      "q1": 14.25,
+      "q3": 22.0,
+      "iqr": 7.75
+    }
+  },
+  "ttest_welch": {
+    "group1": [23, 25, 28, 32, 30, 27, 29],
+    "group2": [18, 20, 19, 22, 21, 20, 17, 23],
+    "expected": {
+      "tStatistic": 5.718636527907484,
+      "degreesOfFreedom": 10.157867623910398,
+      "pValue": 0.0001799298418086055,
+      "meanDifference": 7.714285714285715
+    }
+  },
+  "correlation_pearson": {
+    "x": [1, 2, 3, 4, 5, 6, 7, 8],
+    "y": [2.2, 2.8, 3.6, 4.5, 5.1, 5.9, 6.8, 7.5],
+    "expected": {
+      "r": 0.9992006068365329,
+      "tStatistic": 61.22374788747228,
+      "degreesOfFreedom": 6,
+      "pValue": 3.054366627038166e-9
+    }
+  },
+  "regression_linear": {
+    "x": [1, 2, 3, 4, 5, 6, 7, 8],
+    "y": [2.2, 2.8, 3.6, 4.5, 5.1, 5.9, 6.8, 7.5],
+    "expected": {
+      "slope": 0.769047619047619,
+      "intercept": 1.3392857142857144,
+      "rSquared": 0.998401852683935,
+      "standardError": 0.08140629046323222
+    }
+  }
+}

@@ -1,0 +1,72 @@
+name: CI/CD Pipeline - Statistics Story AI
+
+on:
+  push:
+    branches: [main, master, 'feat/**', 'fix/**']
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  build-test-quality:
+    name: Build, Test & Quality Gate
+    runs-on: ubuntu-latest
+
+    steps:
+      # Stage 1: Checkout Repository
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      # Stage 1: Clean Install
+      - name: Stage 1 - Clean Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      # Stage 2: Biome Lint
+      - name: Stage 2 - Biome Lint Check
+        run: pnpm run lint
+
+      # Stage 3: Typecheck
+      - name: Stage 3 - TypeScript Typecheck
+        run: pnpm run typecheck
+
+      # Stage 4: Vitest Automated Unit & Integration Tests (TC01-TC12)
+      - name: Stage 4 - Vitest Automated Test Execution
+        run: pnpm run test
+
+      # Stage 5: Coverage Check (>= 80%)
+      - name: Stage 5 - Test Coverage Verification
+        run: pnpm run test:coverage
+
+      # Stage 6: Next.js Production Build
+      - name: Stage 6 - Next.js Production Build
+        run: pnpm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
+          NODE_ENV: production
+
+      # Stage 7: SonarQube Scan
+      - name: Stage 7 - SonarQube Scanner
+        uses: SonarSource/sonarqube-scan-action@v4
+        if: ${{ secrets.SONAR_TOKEN != '' }}
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
+      # Stage 8: SonarQube Quality Gate
+      - name: Stage 8 - SonarQube Quality Gate
+        uses: SonarSource/sonarqube-quality-gate-action@v1
+        if: ${{ secrets.SONAR_TOKEN != '' }}
+        timeout-minutes: 5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

@@ -1,0 +1,549 @@
+{
+  "timestamp": "2026-09-20T12:09:09.389Z",
+  "metrics": {
+    "totalComponents": 67,
+    "serverComponents": 50,
+    "clientComponents": 17,
+    "rscRatioPercentage": 74.63,
+    "targetPercentage": 70,
+    "status": "VERIFIED"
+  },
+  "items": [
+    {
+      "filePath": "app/(auth)/login/page.tsx",
+      "fileName": "page.tsx",
+      "category": "page",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 12
+    },
+    {
+      "filePath": "app/(auth)/register/page.tsx",
+      "fileName": "page.tsx",
+      "category": "page",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 12
+    },
+    {
+      "filePath": "app/(protected)/dashboard/page.tsx",
+      "fileName": "page.tsx",
+      "category": "page",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 26
+    },
+    {
+      "filePath": "app/(protected)/hasil/page.tsx",
+      "fileName": "page.tsx",
+      "category": "page",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 42
+    },
+    {
+      "filePath": "app/(protected)/hasil/[id]/page.tsx",
+      "fileName": "page.tsx",
+      "category": "page",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 57
+    },
+    {
+      "filePath": "app/(protected)/input/page.tsx",
+      "fileName": "page.tsx",
+      "category": "page",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 30
+    },
+    {
+      "filePath": "app/(protected)/layout.tsx",
+      "fileName": "layout.tsx",
+      "category": "layout",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 11
+    },
+    {
+      "filePath": "app/(protected)/riwayat/page.tsx",
+      "fileName": "page.tsx",
+      "category": "page",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 26
+    },
+    {
+      "filePath": "app/error.tsx",
+      "fileName": "error.tsx",
+      "category": "page",
+      "isClient": true,
+      "boundaryReason": "Client Boundary: Browser Lifecycle (useEffect)",
+      "lines": 46
+    },
+    {
+      "filePath": "app/layout.tsx",
+      "fileName": "layout.tsx",
+      "category": "layout",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 67
+    },
+    {
+      "filePath": "app/loading.tsx",
+      "fileName": "loading.tsx",
+      "category": "page",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 16
+    },
+    {
+      "filePath": "app/not-found.tsx",
+      "fileName": "not-found.tsx",
+      "category": "page",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 26
+    },
+    {
+      "filePath": "app/page.tsx",
+      "fileName": "page.tsx",
+      "category": "page",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 43
+    },
+    {
+      "filePath": "src/components/analysis-input/analysis-info-fields.tsx",
+      "fileName": "analysis-info-fields.tsx",
+      "category": "feature",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 84
+    },
+    {
+      "filePath": "src/components/analysis-input/analysis-input-form.tsx",
+      "fileName": "analysis-input-form.tsx",
+      "category": "feature",
+      "isClient": true,
+      "boundaryReason": "Client Boundary: Local Interactive State (useState/useReducer)",
+      "lines": 214
+    },
+    {
+      "filePath": "src/components/analysis-input/data-source-section.tsx",
+      "fileName": "data-source-section.tsx",
+      "category": "feature",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 61
+    },
+    {
+      "filePath": "src/components/analysis-input/method-selector.tsx",
+      "fileName": "method-selector.tsx",
+      "category": "feature",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 41
+    },
+    {
+      "filePath": "src/components/analysis-result/bar-comparison-chart.tsx",
+      "fileName": "bar-comparison-chart.tsx",
+      "category": "feature",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 173
+    },
+    {
+      "filePath": "src/components/analysis-result/copy-narrative-button.tsx",
+      "fileName": "copy-narrative-button.tsx",
+      "category": "feature",
+      "isClient": true,
+      "boundaryReason": "Client Boundary: Local Interactive State (useState/useReducer)",
+      "lines": 35
+    },
+    {
+      "filePath": "src/components/analysis-result/example-case-card.tsx",
+      "fileName": "example-case-card.tsx",
+      "category": "feature",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 17
+    },
+    {
+      "filePath": "src/components/analysis-result/hasil-query-view.tsx",
+      "fileName": "hasil-query-view.tsx",
+      "category": "feature",
+      "isClient": true,
+      "boundaryReason": "Client Boundary: Explicit \"use client\" directive",
+      "lines": 191
+    },
+    {
+      "filePath": "src/components/analysis-result/histogram-chart.tsx",
+      "fileName": "histogram-chart.tsx",
+      "category": "feature",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 182
+    },
+    {
+      "filePath": "src/components/analysis-result/narrative-card.tsx",
+      "fileName": "narrative-card.tsx",
+      "category": "feature",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 40
+    },
+    {
+      "filePath": "src/components/analysis-result/regression-chart.tsx",
+      "fileName": "regression-chart.tsx",
+      "category": "feature",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 211
+    },
+    {
+      "filePath": "src/components/analysis-result/result-summary.tsx",
+      "fileName": "result-summary.tsx",
+      "category": "feature",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 27
+    },
+    {
+      "filePath": "src/components/analysis-result/statistics-grid.tsx",
+      "fileName": "statistics-grid.tsx",
+      "category": "feature",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 21
+    },
+    {
+      "filePath": "src/components/analysis-result/visualization-panel.tsx",
+      "fileName": "visualization-panel.tsx",
+      "category": "feature",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 93
+    },
+    {
+      "filePath": "src/components/app/analysis-form-dialog.tsx",
+      "fileName": "analysis-form-dialog.tsx",
+      "category": "feature",
+      "isClient": true,
+      "boundaryReason": "Client Boundary: Local Interactive State (useState/useReducer)",
+      "lines": 139
+    },
+    {
+      "filePath": "src/components/app/app-shell.tsx",
+      "fileName": "app-shell.tsx",
+      "category": "feature",
+      "isClient": true,
+      "boundaryReason": "Client Boundary: Browser Lifecycle (useEffect)",
+      "lines": 213
+    },
+    {
+      "filePath": "src/components/app/confirm-dialog.tsx",
+      "fileName": "confirm-dialog.tsx",
+      "category": "feature",
+      "isClient": true,
+      "boundaryReason": "Client Boundary: Explicit \"use client\" directive",
+      "lines": 41
+    },
+    {
+      "filePath": "src/components/app/file-dropzone.tsx",
+      "fileName": "file-dropzone.tsx",
+      "category": "feature",
+      "isClient": true,
+      "boundaryReason": "Client Boundary: Local Interactive State (useState/useReducer)",
+      "lines": 113
+    },
+    {
+      "filePath": "src/components/app/page-header.tsx",
+      "fileName": "page-header.tsx",
+      "category": "feature",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 33
+    },
+    {
+      "filePath": "src/components/app/scatter-chart.tsx",
+      "fileName": "scatter-chart.tsx",
+      "category": "feature",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 176
+    },
+    {
+      "filePath": "src/components/app/status-badge.tsx",
+      "fileName": "status-badge.tsx",
+      "category": "feature",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 13
+    },
+    {
+      "filePath": "src/components/auth/auth-form.tsx",
+      "fileName": "auth-form.tsx",
+      "category": "feature",
+      "isClient": true,
+      "boundaryReason": "Client Boundary: Local Interactive State (useState/useReducer)",
+      "lines": 191
+    },
+    {
+      "filePath": "src/components/auth/auth-layout.tsx",
+      "fileName": "auth-layout.tsx",
+      "category": "feature",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 53
+    },
+    {
+      "filePath": "src/components/cta.tsx",
+      "fileName": "cta.tsx",
+      "category": "feature",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 54
+    },
+    {
+      "filePath": "src/components/dashboard/analysis-filters.tsx",
+      "fileName": "analysis-filters.tsx",
+      "category": "feature",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 63
+    },
+    {
+      "filePath": "src/components/dashboard/analysis-list.tsx",
+      "fileName": "analysis-list.tsx",
+      "category": "feature",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 118
+    },
+    {
+      "filePath": "src/components/dashboard/dashboard-client-view.tsx",
+      "fileName": "dashboard-client-view.tsx",
+      "category": "feature",
+      "isClient": true,
+      "boundaryReason": "Client Boundary: Local Interactive State (useState/useReducer)",
+      "lines": 184
+    },
+    {
+      "filePath": "src/components/dashboard/dashboard-skeleton.tsx",
+      "fileName": "dashboard-skeleton.tsx",
+      "category": "feature",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 21
+    },
+    {
+      "filePath": "src/components/dashboard/dashboard-summary.tsx",
+      "fileName": "dashboard-summary.tsx",
+      "category": "feature",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 32
+    },
+    {
+      "filePath": "src/components/footer.tsx",
+      "fileName": "footer.tsx",
+      "category": "feature",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 36
+    },
+    {
+      "filePath": "src/components/navbar.tsx",
+      "fileName": "navbar.tsx",
+      "category": "feature",
+      "isClient": true,
+      "boundaryReason": "Client Boundary: Local Interactive State (useState/useReducer)",
+      "lines": 144
+    },
+    {
+      "filePath": "src/components/primitives.tsx",
+      "fileName": "primitives.tsx",
+      "category": "feature",
+      "isClient": true,
+      "boundaryReason": "Client Boundary: Local Interactive State (useState/useReducer)",
+      "lines": 1227
+    },
+    {
+      "filePath": "src/components/providers/app-providers.tsx",
+      "fileName": "app-providers.tsx",
+      "category": "provider",
+      "isClient": true,
+      "boundaryReason": "Client Boundary: Explicit \"use client\" directive",
+      "lines": 17
+    },
+    {
+      "filePath": "src/components/providers/query-provider.tsx",
+      "fileName": "query-provider.tsx",
+      "category": "provider",
+      "isClient": true,
+      "boundaryReason": "Client Boundary: Local Interactive State (useState/useReducer)",
+      "lines": 22
+    },
+    {
+      "filePath": "src/components/scenes/audience.tsx",
+      "fileName": "audience.tsx",
+      "category": "scene",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 62
+    },
+    {
+      "filePath": "src/components/scenes/bridge.tsx",
+      "fileName": "bridge.tsx",
+      "category": "scene",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 27
+    },
+    {
+      "filePath": "src/components/scenes/data-transform.tsx",
+      "fileName": "data-transform.tsx",
+      "category": "scene",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 10
+    },
+    {
+      "filePath": "src/components/scenes/example.tsx",
+      "fileName": "example.tsx",
+      "category": "scene",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 63
+    },
+    {
+      "filePath": "src/components/scenes/features.tsx",
+      "fileName": "features.tsx",
+      "category": "scene",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 79
+    },
+    {
+      "filePath": "src/components/scenes/final-cta.tsx",
+      "fileName": "final-cta.tsx",
+      "category": "scene",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 49
+    },
+    {
+      "filePath": "src/components/scenes/hero.tsx",
+      "fileName": "hero.tsx",
+      "category": "scene",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 10
+    },
+    {
+      "filePath": "src/components/scenes/how-it-works.tsx",
+      "fileName": "how-it-works.tsx",
+      "category": "scene",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 23
+    },
+    {
+      "filePath": "src/components/scenes/problem.tsx",
+      "fileName": "problem.tsx",
+      "category": "scene",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 86
+    },
+    {
+      "filePath": "src/components/scenes/solution.tsx",
+      "fileName": "solution.tsx",
+      "category": "scene",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 43
+    },
+    {
+      "filePath": "src/components/scenes/transformation.tsx",
+      "fileName": "transformation.tsx",
+      "category": "scene",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 12
+    },
+    {
+      "filePath": "src/components/ui/badge.tsx",
+      "fileName": "badge.tsx",
+      "category": "ui",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 33
+    },
+    {
+      "filePath": "src/components/ui/button.tsx",
+      "fileName": "button.tsx",
+      "category": "ui",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 66
+    },
+    {
+      "filePath": "src/components/ui/card.tsx",
+      "fileName": "card.tsx",
+      "category": "ui",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 46
+    },
+    {
+      "filePath": "src/components/ui/dialog.tsx",
+      "fileName": "dialog.tsx",
+      "category": "ui",
+      "isClient": true,
+      "boundaryReason": "Client Boundary: Browser Lifecycle (useEffect)",
+      "lines": 120
+    },
+    {
+      "filePath": "src/components/ui/input.tsx",
+      "fileName": "input.tsx",
+      "category": "ui",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 52
+    },
+    {
+      "filePath": "src/components/ui/select.tsx",
+      "fileName": "select.tsx",
+      "category": "ui",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 43
+    },
+    {
+      "filePath": "src/components/ui/states.tsx",
+      "fileName": "states.tsx",
+      "category": "ui",
+      "isClient": false,
+      "boundaryReason": "React Server Component (No Client Directives/Hooks)",
+      "lines": 67
+    },
+    {
+      "filePath": "src/components/ui/tabs.tsx",
+      "fileName": "tabs.tsx",
+      "category": "ui",
+      "isClient": true,
+      "boundaryReason": "Client Boundary: Local Interactive State (useState/useReducer)",
+      "lines": 91
+    },
+    {
+      "filePath": "src/components/ui/toast.tsx",
+      "fileName": "toast.tsx",
+      "category": "ui",
+      "isClient": true,
+      "boundaryReason": "Client Boundary: Local Interactive State (useState/useReducer)",
+      "lines": 116
+    }
+  ]
+}

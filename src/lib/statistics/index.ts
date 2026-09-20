@@ -1,0 +1,6 @@
+export * from './correlation'
+export * from './descriptive'
+export * from './math-utils'
+export * from './regression'
+export * from './t-test'
+export * from './types'

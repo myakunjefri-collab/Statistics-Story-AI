@@ -1,0 +1,123 @@
+{
+  "timestamp": "2026-09-20T12:09:09.960Z",
+  "environment": {
+    "nodeVersion": "v24.21.0",
+    "platform": "win32",
+    "arch": "x64",
+    "cpuCount": 16
+  },
+  "datasetSize": 1000,
+  "iterations": 30,
+  "warmupIterations": 5,
+  "thresholdMs": 5000,
+  "overallStatus": "VERIFIED",
+  "scopeLimitation": "This benchmark strictly measures Pure Engine (Level A) and Application Statistical-Processing Pipeline (Level B). It excludes HTTP server overhead, session/auth verification, PostgreSQL I/O, database network latency, external AI API latency, and client-side browser rendering.",
+  "levelA_PureEngine": [
+    {
+      "name": "Statistik Deskriptif (FR07)",
+      "level": "Pure Engine",
+      "datasetSize": 1000,
+      "iterations": 30,
+      "warmupIterations": 5,
+      "minMs": 0.2302,
+      "maxMs": 0.8589,
+      "avgMs": 0.3449,
+      "medianMs": 0.2706,
+      "thresholdMs": 5000,
+      "passed": true
+    },
+    {
+      "name": "Uji t Dua Sampel Welch (FR08)",
+      "level": "Pure Engine",
+      "datasetSize": 1000,
+      "iterations": 30,
+      "warmupIterations": 5,
+      "minMs": 0.0317,
+      "maxMs": 0.3635,
+      "avgMs": 0.0829,
+      "medianMs": 0.0552,
+      "thresholdMs": 5000,
+      "passed": true
+    },
+    {
+      "name": "Korelasi Pearson (FR09)",
+      "level": "Pure Engine",
+      "datasetSize": 1000,
+      "iterations": 30,
+      "warmupIterations": 5,
+      "minMs": 0.0366,
+      "maxMs": 0.3661,
+      "avgMs": 0.0934,
+      "medianMs": 0.0702,
+      "thresholdMs": 5000,
+      "passed": true
+    },
+    {
+      "name": "Regresi Linier Sederhana OLS (FR10)",
+      "level": "Pure Engine",
+      "datasetSize": 1000,
+      "iterations": 30,
+      "warmupIterations": 5,
+      "minMs": 0.0368,
+      "maxMs": 0.3757,
+      "avgMs": 0.0718,
+      "medianMs": 0.0392,
+      "thresholdMs": 5000,
+      "passed": true
+    }
+  ],
+  "levelB_ApplicationPipeline": [
+    {
+      "name": "Deskriptif Application Pipeline (CSV -> Parse -> Calc -> Format)",
+      "level": "Application Pipeline",
+      "datasetSize": 1000,
+      "iterations": 30,
+      "warmupIterations": 5,
+      "minMs": 0.8605,
+      "maxMs": 1.8979,
+      "avgMs": 1.275,
+      "medianMs": 1.2317,
+      "thresholdMs": 5000,
+      "passed": true
+    },
+    {
+      "name": "Uji t Application Pipeline (CSV -> Parse -> Group -> Calc -> Format)",
+      "level": "Application Pipeline",
+      "datasetSize": 1000,
+      "iterations": 30,
+      "warmupIterations": 5,
+      "minMs": 0.5735,
+      "maxMs": 1.1099,
+      "avgMs": 0.7497,
+      "medianMs": 0.7235,
+      "thresholdMs": 5000,
+      "passed": true
+    },
+    {
+      "name": "Korelasi Application Pipeline (CSV -> Parse -> Pairs -> Calc -> Format)",
+      "level": "Application Pipeline",
+      "datasetSize": 1000,
+      "iterations": 30,
+      "warmupIterations": 5,
+      "minMs": 0.6109,
+      "maxMs": 1.0547,
+      "avgMs": 0.7705,
+      "medianMs": 0.7369,
+      "thresholdMs": 5000,
+      "passed": true
+    },
+    {
+      "name": "Regresi Application Pipeline (CSV -> Parse -> Pairs -> Calc -> Format)",
+      "level": "Application Pipeline",
+      "datasetSize": 1000,
+      "iterations": 30,
+      "warmupIterations": 5,
+      "minMs": 0.6251,
+      "maxMs": 1.2562,
+      "avgMs": 0.7678,
+      "medianMs": 0.709,
+      "thresholdMs": 5000,
+      "passed": true
+    }
+  ]
+}

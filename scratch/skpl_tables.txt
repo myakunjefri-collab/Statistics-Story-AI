@@ -1,0 +1,280 @@
+=== TABLE 1 (rows: 8) ===
+Disusun oleh,
+Mahasiswa, | Mahasiswa,
+ | 
+Jefri Nur Cholis Hidayat,NIM. V3925026 | Kharindra Argiansya,NIM. V3925027
+Menyetujui,
+Dosen Pengampu Mata Kuliah,
+
+Darmawan Lahru Riatma, S.Kom., M.MTNIP. 1991091420200801
+
+
+=== TABLE 2 (rows: 17) ===
+Istilah | Definisi
+Statistics Story AI | Nama sistem yang dikembangkan; platform berbasis AI yang mengubah hasil statistik menjadi narasi, visualisasi, dan contoh kasus.
+Statistik Deskriptif | Jenis analisis yang meringkas karakteristik data (mean, median, modus, standar deviasi, dsb.).
+Uji t (t test) | Uji statistik untuk membandingkan rata rata dua kelompok data guna menentukan ada tidaknya perbedaan yang signifikan.
+Korelasi | Analisis untuk mengukur kekuatan dan arah hubungan antara dua variabel.
+Regresi Sederhana | Analisis untuk memodelkan hubungan pengaruh satu variabel bebas terhadap satu variabel terikat.
+p value | Nilai probabilitas yang menunjukkan tingkat signifikansi statistik suatu hasil uji.
+Signifikansi | Indikator apakah suatu hasil analisis cukup kuat secara statistik untuk disimpulkan bukan karena kebetulan.
+Data Storytelling | Teknik menyampaikan temuan data kepada audiens melalui narasi dan visualisasi yang mudah dipahami.
+Artificial Intelligence (AI) | Kecerdasan buatan; dalam konteks sistem ini merujuk pada model bahasa yang menghasilkan narasi interpretatif.
+Visualisasi Data | Representasi grafis dari data atau hasil analisis, seperti grafik batang, histogram, dan scatter plot.
+CSV | Comma Separated Values; format berkas teks untuk menyimpan data tabular yang dapat diunggah pengguna.
+Excel | Format berkas spreadsheet (.xlsx/.xls) yang dapat diunggah sebagai sumber data.
+API (Application Programming Interface) | Antarmuka pemrograman yang digunakan sistem untuk berkomunikasi dengan layanan AI pihak ketiga.
+Dashboard | Halaman utama sistem yang menampilkan ringkasan dan navigasi menu bagi pengguna.
+Mahasiswa/User | Aktor utama sistem yang menginput data dan menerima hasil narasi serta visualisasi.
+Dosen/Asisten Dosen | Aktor sekunder yang menggunakan sistem sebagai alat bantu mengajar dan demonstrasi di kelas.
+
+
+=== TABLE 3 (rows: 4) ===
+Aktor | Karakteristik | Tujuan Menggunakan Sistem | Hak Akses
+Mahasiswa (User Utama) | Mahasiswa D3/S1 yang sedang mengambil mata kuliah Statistika/Metodologi Penelitian atau menyusun skripsi; memiliki kemampuan teknis dasar mengoperasikan komputer dan berkas digital, namun kemampuan interpretasi statistik masih terbatas. | Menginput data/output statistik, memperoleh narasi, visualisasi, dan contoh kasus untuk membantu pemahaman dan penyusunan laporan/skripsi. | Input data (manual/upload), memilih jenis analisis, melihat hasil analisis, narasi, visualisasi, dan contoh kasus milik sendiri.
+Dosen/Asisten Dosen (User Sekunder) | Tenaga pengajar mata kuliah Statistika/Metodologi Penelitian dengan kemampuan teknis dan pemahaman statistik yang baik. | Menggunakan sistem sebagai alat bantu mengajar untuk mendemonstrasikan interpretasi hasil statistik secara instan di kelas. | Input data demonstrasi, memilih jenis analisis, melihat hasil analisis, narasi, dan visualisasi untuk kebutuhan pengajaran.
+Penyedia Layanan AI (API) — Aktor Eksternal | Sistem/layanan pihak ketiga (bukan pengguna manusia) yang menyediakan model bahasa (Large Language Model) sebagai mesin pembuat narasi otomatis. | Menerima permintaan (request) berisi hasil statistik dari sistem, dan mengembalikan (response) narasi interpretatif yang akan ditampilkan kepada pengguna. | Menerima data hasil statistik yang telah diproses sistem (tanpa data identitas pribadi pengguna) dan mengirimkan balasan berupa teks narasi.
+
+
+=== TABLE 4 (rows: 17) ===
+Kode | Nama Fitur | Deskripsi Kebutuhan | Aktor
+FR 01 | Registrasi & Login | Pengguna (mahasiswa/dosen) dapat membuat akun sederhana dan masuk ke sistem menggunakan email dan kata sandi, agar riwayat analisis dapat disimpan secara personal. | Mahasiswa, Dosen
+FR 02 | Input Data Manual | Sistem dapat menerima data atau output statistik yang diinput secara manual oleh pengguna melalui formulir input. | Mahasiswa, Dosen
+FR 03 | Upload File CSV | Sistem dapat menerima berkas berformat CSV sebagai sumber data untuk dianalisis. | Mahasiswa, Dosen
+FR 04 | Upload File Excel | Sistem dapat menerima berkas berformat Excel (.xlsx/.xls) sebagai sumber data untuk dianalisis. | Mahasiswa, Dosen
+FR 05 | Validasi Data | Sistem melakukan pemeriksaan format, tipe data, dan kelengkapan data yang diunggah/diinput sebelum diproses lebih lanjut. | Sistem
+FR 06 | Pemilihan Jenis Analisis | Pengguna dapat memilih jenis analisis statistik yang akan dijalankan (deskriptif, uji t, korelasi, atau regresi sederhana). | Mahasiswa, Dosen
+FR 07 | Analisis Statistik Deskriptif | Sistem menghitung nilai statistik deskriptif (mean, median, modus, standar deviasi, minimum, maksimum) dari data yang diberikan. | Sistem
+FR 08 | Analisis Uji t | Sistem menghitung nilai uji t beserta p value untuk membandingkan dua kelompok data. | Sistem
+FR 09 | Analisis Korelasi | Sistem menghitung koefisien korelasi antara dua variabel data. | Sistem
+FR 10 | Analisis Regresi Sederhana | Sistem menghitung model regresi sederhana (koefisien, konstanta, dan R²) antara satu variabel bebas dan satu variabel terikat. | Sistem
+FR 11 | Pemrosesan AI (Interpretasi) | Sistem mengirimkan hasil perhitungan statistik ke layanan AI dan menerima kembali narasi interpretatif yang sesuai konteks. | Sistem, Penyedia Layanan AI
+FR 12 | Generasi Narasi | Sistem menampilkan narasi interpretatif berbahasa Indonesia dan/atau Inggris berdasarkan hasil analisis kepada pengguna. | Mahasiswa, Dosen
+FR 13 | Generasi Visualisasi | Sistem menghasilkan visualisasi grafik otomatis (grafik batang, histogram, atau scatter plot) yang relevan dengan jenis analisis. | Sistem
+FR 14 | Generasi Contoh Kasus | Sistem menampilkan contoh kasus atau analogi nyata untuk membantu pengguna memahami makna hasil statistik. | Sistem, Penyedia Layanan AI
+FR 15 | Melihat Hasil Analisis | Pengguna dapat melihat rangkuman hasil analisis (angka statistik, narasi, visualisasi, dan contoh kasus) dalam satu halaman. | Mahasiswa, Dosen
+FR 16 | Melihat Riwayat Analisis | Pengguna dapat melihat daftar analisis yang pernah dilakukan sebelumnya beserta ringkasannya. | Mahasiswa, Dosen
+
+
+=== TABLE 5 (rows: 9) ===
+Kode | Kategori | Deskripsi Kebutuhan
+NFR 01 | Security | Sistem menerapkan autentikasi login dan enkripsi kata sandi (hashing, mis. bcrypt) untuk melindungi akun pengguna.
+NFR 02 | Performance | Waktu proses analisis statistik dasar (deskriptif, uji t, korelasi, regresi sederhana) tidak lebih dari 5 detik pada kondisi normal, tidak termasuk waktu tunggu respons layanan AI eksternal.
+NFR 03 | Availability | Sistem prototipe dapat diakses selama masa pengujian perkuliahan dengan target uptime yang wajar untuk lingkungan pengujian akademik (bukan SLA produksi komersial).
+NFR 04 | Usability | Antarmuka sistem dirancang sederhana dan intuitif sehingga dapat digunakan mahasiswa tanpa pelatihan khusus, dan akan diukur menggunakan kuesioner System Usability Scale (SUS).
+NFR 05 | Reliability | Sistem mampu menangani kegagalan respons dari layanan AI eksternal (mis. timeout) dengan menampilkan pesan kesalahan yang informatif tanpa menghentikan seluruh aplikasi.
+NFR 06 | Maintainability | Kode sumber sistem disusun modular (terpisah antara modul input, modul analisis statistik, modul integrasi AI, dan modul visualisasi) agar mudah dipelihara oleh tim pengembang.
+NFR 07 | Compatibility | Sistem dapat diakses melalui browser modern (Google Chrome, Mozilla Firefox, Microsoft Edge) versi terbaru pada perangkat desktop/laptop.
+NFR 08 | Scalability | Sistem dirancang agar mampu menangani beban pengujian minimal 20 responden mahasiswa secara bergantian dalam satu semester, sesuai target uji coba pada Project Charter.
+
+
+=== TABLE 6 (rows: 1) ===
+Gambar 4.1 Swimlane Diagram Sistem
+
+
+=== TABLE 7 (rows: 1) ===
+Gambar 4.2 Flowchart Input & Validasi Data
+
+
+=== TABLE 8 (rows: 1) ===
+Gambar 4.3 Flowchart Analisis Statistik & Interpretasi AI
+
+
+=== TABLE 9 (rows: 1) ===
+Gambar 4.4 Diagram Konteks
+
+
+=== TABLE 10 (rows: 1) ===
+Gambar 4.5 DFD Level 0
+
+
+=== TABLE 11 (rows: 1) ===
+Gambar 4.6 Use Case Diagram
+
+
+=== TABLE 12 (rows: 1) ===
+Gambar 4.7 Activity Diagram
+
+
+=== TABLE 13 (rows: 1) ===
+Gambar 4.8 Sequence Diagram
+
+
+=== TABLE 14 (rows: 1) ===
+Gambar 4.9 Class Diagram
+
+
+=== TABLE 15 (rows: 1) ===
+Gambar 5.1 Desain Arsitektur Three Tier
+
+
+=== TABLE 16 (rows: 1) ===
+Gambar 5.2 Alur Integrasi Layanan AI Pihak Ketiga
+
+
+=== TABLE 17 (rows: 9) ===
+Komponen | Spesifikasi/Teknologi (Asumsi) | Keterangan
+Sistem Operasi Server | Ubuntu Server (LTS) | Sistem operasi pada server pengujian prototipe
+Web Server | Nginx / Apache | Menangani request HTTP dari Client Tier
+Framework Backend | Python 3 dengan framework Flask, didukung pustaka Pandas, NumPy, SciPy, dan statsmodels untuk komputasi statistik | Menangani logika bisnis, autentikasi, perhitungan statistik, dan orkestrasi permintaan ke layanan AI
+Framework Frontend | React.js dengan Tailwind CSS (styling) dan Recharts/Chart.js (rendering grafik batang, histogram, scatter plot) | Membangun antarmuka pengguna berbasis web (form input, dashboard, tampilan narasi & visualisasi)
+DBMS | PostgreSQL | Menyimpan data pengguna, dataset, hasil, dan riwayat
+Layanan AI (LLM API) | Layanan Large Language Model (LLM) berbasis REST API dengan dukungan Bahasa Indonesia dan tarif/free-tier terjangkau untuk skala prototipe | Menghasilkan narasi interpretatif dan contoh kasus
+Hosting/Deployment | VPS kelas kecil (mis. Railway, Render, atau server internal kampus) dengan biaya minim/tingkat mahasiswa | Mempertimbangkan keterbatasan biaya sesuai Constraint Project Charter
+Perangkat Keras Server (Prototipe) | 2 vCPU, RAM 4 GB, Storage 40 GB SSD — cukup untuk beban pengujian terbatas (≤20 responden bergantian) | Disesuaikan dengan skala pengujian, bukan skala produksi
+
+
+=== TABLE 18 (rows: 8) ===
+Nama Data | Deskripsi | Sumber Data | Atribut Utama
+Data Pengguna | Menyimpan data akun pengguna sistem (mahasiswa/dosen). | Input registrasi pengguna | id_pengguna, nama, email, password_hash, peran, created_at
+Data Analisis | Menyimpan setiap sesi analisis yang dilakukan pengguna. | Input pengguna saat memulai analisis | id_analisis, id_pengguna, jenis_analisis, tanggal, status
+Dataset Input | Menyimpan berkas/data yang diunggah atau diinput manual oleh pengguna. | Upload CSV/Excel atau input manual | id_dataset, id_analisis, nama_file, format_data, sumber_input
+Hasil Statistik | Menyimpan nilai hasil perhitungan statistik. | Modul Analisis Statistik | id_hasil, id_analisis, jenis_uji, nilai_statistik, p_value
+Narasi Interpretasi | Menyimpan narasi hasil interpretasi AI. | Modul Integrasi AI | id_narasi, id_hasil, bahasa, isi_narasi, tanggal_generate
+Visualisasi | Menyimpan metadata grafik yang dihasilkan sistem. | Modul Visualisasi | id_visual, id_hasil, jenis_grafik, data_grafik
+Contoh Kasus | Menyimpan contoh kasus/analogi yang dihasilkan AI. | Modul Integrasi AI | id_kasus, id_hasil, deskripsi_kasus
+
+
+=== TABLE 19 (rows: 1) ===
+Gambar 6.1 Conceptual Data Model (ERD)
+
+
+=== TABLE 20 (rows: 7) ===
+Nama Field | Tipe Data | Constraint | Keterangan
+id_pengguna | INT | PK, AUTO_INCREMENT, NOT NULL | Primary key tabel pengguna
+nama | VARCHAR(100) | NOT NULL | Nama lengkap pengguna
+email | VARCHAR(150) | UNIQUE, NOT NULL | Email pengguna
+password_hash | VARCHAR(255) | NOT NULL | Kata sandi terenkripsi (hash)
+peran | ENUM('mahasiswa','dosen') | DEFAULT 'mahasiswa' | Peran pengguna dalam sistem
+created_at | DATETIME | DEFAULT CURRENT_TIMESTAMP | Waktu akun dibuat
+
+
+=== TABLE 21 (rows: 6) ===
+Nama Field | Tipe Data | Constraint | Keterangan
+id_analisis | INT | PK, AUTO_INCREMENT, NOT NULL | Primary key tabel analisis
+id_pengguna | INT | FK > pengguna.id_pengguna, NOT NULL | Relasi ke pengguna yang melakukan analisis
+jenis_analisis | ENUM('deskriptif','uji_t','korelasi','regresi') | NOT NULL | Jenis analisis yang dipilih
+tanggal | DATETIME | DEFAULT CURRENT_TIMESTAMP | Waktu analisis dijalankan
+status | VARCHAR(20) | DEFAULT 'selesai' | Status proses analisis
+
+
+=== TABLE 22 (rows: 5) ===
+Nama Field | Tipe Data | Constraint | Keterangan
+id_dataset | INT | PK, AUTO_INCREMENT, NOT NULL | Primary key tabel dataset
+id_analisis | INT | FK > analisis.id_analisis, NOT NULL | Relasi ke sesi analisis
+nama_file | VARCHAR(255) | NULL | Nama berkas yang diunggah (jika ada)
+format_data | ENUM('csv','xlsx','manual') | NOT NULL | Format/sumber data input
+
+
+=== TABLE 23 (rows: 6) ===
+Nama Field | Tipe Data | Constraint | Keterangan
+id_hasil | INT | PK, AUTO_INCREMENT, NOT NULL | Primary key tabel hasil statistik
+id_analisis | INT | FK > analisis.id_analisis, NOT NULL | Relasi ke sesi analisis
+jenis_uji | VARCHAR(50) | NOT NULL | Nama uji statistik yang dijalankan
+nilai_statistik | JSON / TEXT | NOT NULL | Nilai nilai hasil perhitungan statistik
+p_value | FLOAT | NULL | Nilai signifikansi (jika relevan)
+
+
+=== TABLE 24 (rows: 6) ===
+Nama Field | Tipe Data | Constraint | Keterangan
+id_narasi | INT | PK, AUTO_INCREMENT, NOT NULL | Primary key tabel narasi
+id_hasil | INT | FK > hasil_statistik.id_hasil, NOT NULL | Relasi ke hasil statistik
+bahasa | ENUM('id','en') | DEFAULT 'id' | Bahasa narasi yang dihasilkan
+isi_narasi | TEXT | NOT NULL | Isi narasi interpretatif
+tanggal_generate | DATETIME | DEFAULT CURRENT_TIMESTAMP | Waktu narasi dihasilkan
+
+
+=== TABLE 25 (rows: 6) ===
+Nama Field | Tipe Data | Constraint | Keterangan
+id_visual | INT | PK, AUTO_INCREMENT, NOT NULL | Primary key tabel visualisasi
+id_hasil | INT | FK -> hasil_statistik.id_hasil, NOT NULL | Relasi ke hasil statistik terkait
+jenis_grafik | ENUM('bar','histogram','scatter') | NOT NULL | Jenis grafik yang dihasilkan
+data_grafik | JSON / TEXT | NOT NULL | Data poin/label yang digunakan untuk merender grafik
+created_at | DATETIME | DEFAULT CURRENT_TIMESTAMP | Waktu visualisasi dibuat
+
+
+=== TABLE 26 (rows: 5) ===
+Nama Field | Tipe Data | Constraint | Keterangan
+id_kasus | INT | PK, AUTO_INCREMENT, NOT NULL | Primary key tabel contoh kasus
+id_hasil | INT | FK -> hasil_statistik.id_hasil, NOT NULL | Relasi ke hasil statistik terkait
+deskripsi_kasus | TEXT | NOT NULL | Isi contoh kasus/analogi yang dihasilkan AI
+bahasa | ENUM('id','en') | DEFAULT 'id' | Bahasa contoh kasus yang ditampilkan
+
+
+=== TABLE 27 (rows: 10) ===
+No. | Nama Halaman | Fungsi Utama
+1 | Halaman Login/Registrasi | Autentikasi pengguna ke dalam sistem (Asumsi Perancangan).
+2 | Dashboard | Ringkasan aktivitas pengguna dan navigasi ke menu utama.
+3 | Input/Upload Data | Memasukkan data manual atau mengunggah berkas CSV/Excel.
+4 | Pemilihan Jenis Analisis | Memilih jenis analisis statistik yang akan dijalankan.
+5 | Hasil Analisis | Menampilkan nilai/angka hasil perhitungan statistik.
+6 | Narasi AI | Menampilkan narasi interpretatif hasil analisis.
+7 | Visualisasi | Menampilkan grafik otomatis (batang, histogram, scatter plot).
+8 | Contoh Kasus | Menampilkan contoh kasus/analogi terkait hasil analisis.
+9 | Riwayat Analisis | Menampilkan daftar analisis yang pernah dilakukan pengguna (Asumsi Perancangan).
+
+
+=== TABLE 28 (rows: 10) ===
+Halaman | Komponen Utama | Fungsi / Navigasi ke Halaman
+Login/Registrasi | Form email & kata sandi, tombol Login/Daftar | Jika berhasil → Dashboard; jika gagal → pesan error pada halaman yang sama
+Dashboard | Menu navigasi, ringkasan riwayat singkat, tombol “Mulai Analisis Baru” | Navigasi ke halaman Input/Upload Data atau Riwayat Analisis
+Input/Upload Data | Form input manual, area unggah berkas, tombol Validasi | Jika data valid → Pemilihan Jenis Analisis; jika tidak valid → pesan error pada halaman yang sama
+Pemilihan Jenis Analisis | Pilihan kartu: Deskriptif, Uji t, Korelasi, Regresi Sederhana | Setelah dipilih → proses perhitungan → Hasil Analisis
+Hasil Analisis | Tabel nilai statistik, tombol “Lihat Narasi AI” | Navigasi ke halaman Narasi AI
+Narasi AI | Blok teks narasi interpretatif, pilihan bahasa (ID/EN) | Navigasi ke halaman Visualisasi dan Contoh Kasus
+Visualisasi | Grafik batang/histogram/scatter plot sesuai jenis analisis | Navigasi kembali ke Hasil Analisis atau lanjut ke Contoh Kasus
+Contoh Kasus | Deskripsi analogi/contoh kasus nyata | Navigasi kembali ke Dashboard atau simpan ke Riwayat Analisis
+Riwayat Analisis | Daftar analisis sebelumnya beserta tanggal dan ringkasan | Klik salah satu item → kembali membuka Hasil Analisis terkait
+
+
+=== TABLE 29 (rows: 5) ===
+Risiko | Potensi Dampak | Mitigasi
+Narasi AI berpotensi bias/kurang akurat (hallucination) | Interpretasi hasil statistik menjadi menyesatkan bagi pengguna | Menampilkan disclaimer, serta menyertakan angka statistik mentah di samping narasi agar pengguna dapat memverifikasi
+Keterbatasan biaya/akses API AI | Fitur narasi tidak berjalan optimal atau proyek tertunda | Memilih layanan AI dengan free-tier/biaya rendah serta membatasi jumlah permintaan (rate limiting) selama pengujian
+Waktu pengujian terbatas | Evaluasi sistem kurang mendalam, hasil kurang representatif | Menjadwalkan pengujian responden sedini mungkin pada semester berjalan dan menyiapkan sesi cadangan
+Ketergantungan pada layanan pihak ketiga (API AI) | Perubahan kebijakan/harga API dapat mengganggu keberlanjutan sistem | Merancang modul integrasi AI secara modular agar penyedia layanan dapat diganti tanpa mengubah keseluruhan sistem
+
+
+=== TABLE 30 (rows: 11) ===
+Mekanisme | Implementasi | Tujuan
+Autentikasi | Login dengan email & kata sandi | Memastikan hanya pengguna terdaftar yang dapat mengakses sistem
+Otorisasi | Pembatasan akses berbasis peran (mahasiswa/dosen) | Membatasi akses fitur/data sesuai peran pengguna
+Enkripsi Kata Sandi | Hashing (mis. bcrypt) | Melindungi kata sandi pengguna dari kebocoran data
+Manajemen Sesi | Session/token dengan masa berlaku terbatas | Mengelola sesi login pengguna secara aman
+Validasi Input | Pemeriksaan tipe data dan format pada form input manual | Mencegah data tidak valid masuk ke proses analisis
+Validasi Berkas Upload | Pembatasan tipe berkas (.csv, .xlsx/.xls) dan ukuran maksimum berkas | Mencegah unggahan berkas berbahaya atau tidak sesuai format
+Proteksi SQL Injection | Prepared statement / penggunaan ORM | Mencegah manipulasi query basis data
+Proteksi XSS | Sanitasi input dan escaping output | Mencegah injeksi script berbahaya pada antarmuka
+HTTPS | Sertifikat SSL/TLS | Mengenkripsi komunikasi data antara klien dan server
+Perlindungan Kunci API | Penyimpanan kunci API layanan AI di sisi server (tidak diekspos ke client) | Mencegah penyalahgunaan akses ke layanan AI pihak ketiga
+
+
+=== TABLE 31 (rows: 13) ===
+ID Uji | Skenario Pengujian | Input | Output yang Diharapkan | Hasil
+TC 01 | Login dengan data valid | Email & kata sandi benar | Masuk ke dashboard | [ ]
+TC 02 | Login dengan data tidak valid | Kata sandi salah | Pesan error muncul | [ ]
+TC 03 | Upload berkas CSV valid | Berkas CSV dengan format sesuai | Data berhasil divalidasi dan disimpan | [ ]
+TC 04 | Upload berkas tidak valid | Berkas dengan format tidak didukung (mis. .pdf) | Pesan error format tidak didukung | [ ]
+TC 05 | Input data manual | Data numerik lengkap sesuai form | Data tersimpan dan siap dianalisis | [ ]
+TC 06 | Analisis statistik deskriptif | Dataset numerik | Nilai mean, median, modus, std. deviasi tampil benar | [ ]
+TC 07 | Analisis uji t | Dua kelompok data numerik | Nilai t dan p value tampil sesuai perhitungan | [ ]
+TC 08 | Analisis korelasi | Dua variabel numerik | Koefisien korelasi tampil sesuai perhitungan | [ ]
+TC 09 | Analisis regresi sederhana | Variabel bebas & terikat numerik | Koefisien regresi dan R² tampil sesuai perhitungan | [ ]
+TC 10 | Generasi narasi AI | Hasil statistik valid | Narasi interpretatif relevan dengan hasil ditampilkan | [ ]
+TC 11 | Generasi visualisasi | Hasil statistik valid | Grafik sesuai jenis analisis ditampilkan | [ ]
+TC 12 | Penanganan error layanan AI | Layanan AI tidak merespons (timeout) | Pesan error informatif, sistem tidak crash | [ ]
+
+
+=== TABLE 32 (rows: 11) ===
+No. | Pernyataan SUS | 1 (Sangat Tidak Setuju) | 2 | 3 (Netral) | 4 | 5 (Sangat Setuju)
+1 | Saya pikir saya akan sering menggunakan sistem ini |  |  |  |  | 
+2 | Saya menemukan sistem ini tidak perlu terlalu kompleks |  |  |  |  | 
+3 | Saya pikir sistem ini mudah digunakan |  |  |  |  | 
+4 | Saya pikir saya butuh bantuan orang teknis untuk menggunakan sistem ini* |  |  |  |  | 
+5 | Saya menemukan berbagai fungsi dalam sistem ini terintegrasi dengan baik |  |  |  |  | 
+6 | Saya pikir terlalu banyak hal yang tidak konsisten dalam sistem ini* |  |  |  |  | 
+7 | Saya yakin kebanyakan orang akan mudah belajar menggunakan sistem ini |  |  |  |  | 
+8 | Saya menemukan sistem ini sangat rumit digunakan* |  |  |  |  | 
+9 | Saya merasa sangat percaya diri menggunakan sistem ini |  |  |  |  | 
+10 | Saya harus belajar banyak hal sebelum dapat menggunakan sistem ini* |  |  |  |  | 
+

@@ -1,0 +1,128 @@
+[
+  {
+    "browserName": "Google Chrome",
+    "executablePath": "Google Chrome (channel: chrome)",
+    "status": "VERIFIED",
+    "scenarios": [
+      {
+        "scenario": "1. Landing page semantic validation (Title, H1 Hero, Main CTA)",
+        "passed": true,
+        "details": "Title: \"Statistics Story AI — Dari Angka Menjadi Cerita\" | H1: \"Dari AngkaMenjadi Cerita.\" | CTA Visible: true"
+      },
+      {
+        "scenario": "2. Login page form controls & interactive input",
+        "passed": true,
+        "details": "Email input (researcher@uns.ac.id), password input (typed), submit button verified interactable"
+      },
+      {
+        "scenario": "3. Protected input page loads with AnalysisInputForm and authorized session",
+        "passed": true,
+        "details": "URL: http://localhost:3099/input | Page Header: \"Buat Analisis\" | Form visible: true"
+      },
+      {
+        "scenario": "4. Analysis selection UI verifies all 4 methods (Deskriptif, Uji t, Korelasi, Regresi)",
+        "passed": true,
+        "details": "Options: [Statistik Deskriptif, Uji t, Korelasi, Regresi] | Transitions verified: Regresi -> Deskriptif"
+      },
+      {
+        "scenario": "5. Result view presents 5 sections (FR15) + Auth Guard redirect for unauthenticated user",
+        "passed": true,
+        "details": "All 5 sections rendered: true | Unauthenticated guard redirected to: http://localhost:3099/login?from=%2Fhasil%2F1"
+      },
+      {
+        "scenario": "6. Chart rendering DOM validation (Regression scatter circles > 0, trendline, and Histogram bars > 0)",
+        "passed": true,
+        "details": "Regression SVG: 1, Circles: 8, Trendline Meta: true | Histogram SVG: 1, Bars: 3"
+      },
+      {
+        "scenario": "7. Keyboard Tab navigation moves document.activeElement systematically across inputs",
+        "passed": true,
+        "details": "Active elements traversed: [INPUT:email] -> [BUTTON:] -> [INPUT:password]"
+      }
+    ]
+  },
+  {
+    "browserName": "Microsoft Edge",
+    "executablePath": "Microsoft Edge (channel: msedge)",
+    "status": "VERIFIED",
+    "scenarios": [
+      {
+        "scenario": "1. Landing page semantic validation (Title, H1 Hero, Main CTA)",
+        "passed": true,
+        "details": "Title: \"Statistics Story AI — Dari Angka Menjadi Cerita\" | H1: \"Dari AngkaMenjadi Cerita.\" | CTA Visible: true"
+      },
+      {
+        "scenario": "2. Login page form controls & interactive input",
+        "passed": true,
+        "details": "Email input (researcher@uns.ac.id), password input (typed), submit button verified interactable"
+      },
+      {
+        "scenario": "3. Protected input page loads with AnalysisInputForm and authorized session",
+        "passed": true,
+        "details": "URL: http://localhost:3099/input | Page Header: \"Buat Analisis\" | Form visible: true"
+      },
+      {
+        "scenario": "4. Analysis selection UI verifies all 4 methods (Deskriptif, Uji t, Korelasi, Regresi)",
+        "passed": true,
+        "details": "Options: [Statistik Deskriptif, Uji t, Korelasi, Regresi] | Transitions verified: Regresi -> Deskriptif"
+      },
+      {
+        "scenario": "5. Result view presents 5 sections (FR15) + Auth Guard redirect for unauthenticated user",
+        "passed": true,
+        "details": "All 5 sections rendered: true | Unauthenticated guard redirected to: http://localhost:3099/login?from=%2Fhasil%2F1"
+      },
+      {
+        "scenario": "6. Chart rendering DOM validation (Regression scatter circles > 0, trendline, and Histogram bars > 0)",
+        "passed": true,
+        "details": "Regression SVG: 1, Circles: 8, Trendline Meta: true | Histogram SVG: 1, Bars: 3"
+      },
+      {
+        "scenario": "7. Keyboard Tab navigation moves document.activeElement systematically across inputs",
+        "passed": true,
+        "details": "Active elements traversed: [INPUT:email] -> [BUTTON:] -> [INPUT:password]"
+      }
+    ]
+  },
+  {
+    "browserName": "Mozilla Firefox",
+    "executablePath": "Mozilla Firefox (playwright managed)",
+    "status": "VERIFIED",
+    "scenarios": [
+      {
+        "scenario": "1. Landing page semantic validation (Title, H1 Hero, Main CTA)",
+        "passed": true,
+        "details": "Title: \"Statistics Story AI — Dari Angka Menjadi Cerita\" | H1: \"Dari AngkaMenjadi Cerita.\" | CTA Visible: true"
+      },
+      {
+        "scenario": "2. Login page form controls & interactive input",
+        "passed": true,
+        "details": "Email input (researcher@uns.ac.id), password input (typed), submit button verified interactable"
+      },
+      {
+        "scenario": "3. Protected input page loads with AnalysisInputForm and authorized session",
+        "passed": true,
+        "details": "URL: http://localhost:3099/input | Page Header: \"Buat Analisis\" | Form visible: true"
+      },
+      {
+        "scenario": "4. Analysis selection UI verifies all 4 methods (Deskriptif, Uji t, Korelasi, Regresi)",
+        "passed": true,
+        "details": "Options: [Statistik Deskriptif, Uji t, Korelasi, Regresi] | Transitions verified: Regresi -> Deskriptif"
+      },
+      {
+        "scenario": "5. Result view presents 5 sections (FR15) + Auth Guard redirect for unauthenticated user",
+        "passed": true,
+        "details": "All 5 sections rendered: true | Unauthenticated guard redirected to: http://localhost:3099/login?from=%2Fhasil%2F1"
+      },
+      {
+        "scenario": "6. Chart rendering DOM validation (Regression scatter circles > 0, trendline, and Histogram bars > 0)",
+        "passed": true,
+        "details": "Regression SVG: 1, Circles: 8, Trendline Meta: true | Histogram SVG: 1, Bars: 3"
+      },
+      {
+        "scenario": "7. Keyboard Tab navigation moves document.activeElement systematically across inputs",
+        "passed": true,
+        "details": "Active elements traversed: [INPUT:email] -> [BUTTON:] -> [INPUT:password]"
+      }
+    ]
+  }
+]

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Modul 8: Matriks Migrasi & Benchmarking - Statistics Story AI</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 10mm 14mm;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1a1f2e;
+      background: #ffffff;
+      line-height: 1.35;
+      font-size: 9pt;
+    }
+    .page {
+      width: 100%;
+    }
+    .page-break {
+      page-break-before: always;
+    }
+    header {
+      border-bottom: 2px solid #2563eb;
+      padding-bottom: 6px;
+      margin-bottom: 10px;
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    h1 {
+      font-size: 14pt;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+    }
+    .doc-badge {
+      font-size: 8pt;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #2563eb;
+      background: #eff6ff;
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid #bfdbfe;
+    }
+    .meta-sub {
+      font-size: 8.5pt;
+      color: #64748b;
+      margin-top: 2px;
+    }
+    h2 {
+      font-size: 10.5pt;
+      font-weight: 600;
+      color: #1e293b;
+      margin-top: 8px;
+      margin-bottom: 5px;
+      border-left: 3px solid #2563eb;
+      padding-left: 6px;
+    }
+    p, li {
+      font-size: 8.5pt;
+      color: #334155;
+      line-height: 1.35;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 5px 0 7px 0;
+      font-size: 7.8pt;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 3px 6px;
+      text-align: left;
+    }
+    th {
+      background-color: #f8fafc;
+      font-weight: 600;
+      color: #0f172a;
+    }
+    tr:nth-child(even) {
+      background-color: #fcfcfd;
+    }
+    .badge-pass {
+      display: inline-block;
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: #15803d;
+      background: #f0fdf4;
+      border: 1px solid #86efac;
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+    .badge-ready {
+      display: inline-block;
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: #b45309;
+      background: #fefce8;
+      border: 1px solid #fde047;
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+    .box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      padding: 6px 10px;
+      margin-top: 6px;
+      margin-bottom: 6px;
+    }
+    .box-title {
+      font-weight: 600;
+      font-size: 8.5pt;
+      color: #0f172a;
+      margin-bottom: 2px;
+    }
+    footer {
+      border-top: 1px solid #e2e8f0;
+      padding-top: 4px;
+      margin-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 7.5pt;
+      color: #94a3b8;
+    }
+    .text-right { text-align: right; }
+    .tnum { font-variant-numeric: tabular-nums; }
+  </style>
+</head>
+<body>
+
+  <!-- HALAMAN 1: MATRIKS MIGRASI BUILD PIPELINE -->
+  <div class="page">
+    <header>
+      <div class="header-top">
+        <h1>MATRIKS MIGRASI BUILD PIPELINE</h1>
+        <span class="doc-badge">Modul 8 Praktikum</span>
+      </div>
+      <p class="meta-sub">Aplikasi: <strong>Statistics Story AI</strong> • Refactor Struktur: <strong>src/</strong> • Path Alias: <strong>@/ → src/</strong></p>
+    </header>
+
+    <h2>1. Ringkasan Eksekutif Migrasi</h2>
+    <p>
+      Pipeline pembangunan frontend <strong>Statistics Story AI</strong> berhasil dimigrasikan dari framework fullstack Next.js ke arsitektur Single Page Application (SPA) modern berbasis <strong>React 19, Vite 8, Strict TypeScript, dan Biome</strong>. Fitur utama Statistics Story AI tetap dipertahankan setelah migrasi ke Vite dan telah diverifikasi pada environment pengujian.
+    </p>
+
+    <h2>2. Matriks Komparasi Build Pipeline (Sebelum vs Sesudah)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 26%;">Komponen Pipeline</th>
+          <th style="width: 37%;">Sebelum Migrasi (Next.js 16)</th>
+          <th style="width: 37%;">Sesudah Migrasi (Vite 8 SPA)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Build Tool & Bundler</strong></td>
+          <td>Next.js 16.3.3 (Turbopack engine)</td>
+          <td><strong>Vite 8.3.0</strong> (Rolldown engine + esbuild minifier)</td>
+        </tr>
+        <tr>
+          <td><strong>UI Library & Runtime</strong></td>
+          <td>React 19 (Server Components + Client)</td>
+          <td><strong>React 19 SPA</strong> (Client-side Pure SPA)</td>
+        </tr>
+        <tr>
+          <td><strong>Type Safety Standard</strong></td>
+          <td>TypeScript 5.7 standard (strict: true)</td>
+          <td><strong>Strict TypeScript</strong> (strict + noUncheckedIndexedAccess)</td>
+        </tr>
+        <tr>
+          <td><strong>Linter & Formatter</strong></td>
+          <td>ESLint 10 (Flat Config + Plugins)</td>
+          <td><strong>Biome 2.5.13</strong> (Rust toolchain, format & lint terpadu)</td>
+        </tr>
+        <tr>
+          <td><strong>Path Alias Konfigurasi</strong></td>
+          <td><code>@/ → ./</code> (Root project target)</td>
+          <td><strong><code>@/ → src/</code></strong> (Baku, target direktori <code>./src/*</code>)</td>
+        </tr>
+        <tr>
+          <td><strong>Strategi Code Splitting</strong></td>
+          <td>Next.js automatic code-splitting</td>
+          <td><strong>Vite manualChunks</strong> (Pemisahan vendor modular)</td>
+        </tr>
+        <tr>
+          <td><strong>Development Server</strong></td>
+          <td><code>next dev</code> (Port 3000)</td>
+          <td><strong><code>vite</code></strong> (Port 3000, strictPort: true, host: true)</td>
+        </tr>
+        <tr>
+          <td><strong>Routing & Guard</strong></td>
+          <td>Next App Router + <code>proxy.ts</code> middleware</td>
+          <td><strong>React Router DOM v7</strong> + <code>&lt;ProtectedRoute&gt;</code></td>
+        </tr>
+        <tr>
+          <td><strong>Backend / Mock API</strong></td>
+          <td>Next.js Route Handlers (<code>app/api/*</code>)</td>
+          <td><strong>Vite Connect Middleware</strong> (<code>server/mock-api-middleware</code>)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>3. Struktur Direktori Baru (Standard <code>src/</code>)</h2>
+    <div class="box">
+      <p class="box-title">Organisasi Folder Frontend Bersih:</p>
+      <p style="font-family: Consolas, monospace; font-size: 8pt; color: #1e293b; line-height: 1.3;">
+        src/<br>
+        ├── components/ &nbsp;-- Komponen antarmuka (app, auth, dashboard, scenes, ui)<br>
+        ├── pages/ &nbsp; &nbsp; &nbsp;-- Halaman rute SPA (landing, login, register, dashboard, input, hasil)<br>
+        ├── lib/ &nbsp; &nbsp; &nbsp; &nbsp;-- State store (Zustand), TanStack queries, types, validation (Zod)<br>
+        ├── globals.css &nbsp;-- Styling editorial theme Tailwind CSS v4<br>
+        ├── router.tsx &nbsp; -- Rute deklaratif React Router dengan auth guard<br>
+        └── main.tsx &nbsp; &nbsp; -- Client entry point React DOM createRoot
+      </p>
+    </div>
+
+    <h2>4. Kebijakan Type Safety & Aksesibilitas</h2>
+    <p>
+      Pengaktifan opsi <code>"noUncheckedIndexedAccess": true</code> diselesaikan dengan penambahan pengondisian aman pada nodelist focus trap dialog (<code>components/ui/dialog.tsx</code>), navigasi tab keyboard (<code>components/ui/tabs.tsx</code>), penentuan tipe koordinat scatter chart tuple <code>[number, number][]</code>, dan parser tanggal tanpa menggunakan satupun type assertion <code>any</code> atau bypass <code>@ts-ignore</code>.
+    </p>
+
+    <footer>
+      <span>Dokumen Resmi Praktikum Modul 8 • Statistics Story AI</span>
+      <span>Halaman 1 dari 2</span>
+    </footer>
+  </div>
+
+  <!-- HALAMAN 2: BENCHMARK & QUALITY GATE -->
+  <div class="page page-break">
+    <header>
+      <div class="header-top">
+        <h1>BENCHMARK & QUALITY GATE</h1>
+        <span class="doc-badge">Modul 8 Praktikum</span>
+      </div>
+      <p class="meta-sub">Pengujian Lingkungan Riil: <strong>Windows 11 x64 • Node.js v24 • Vite 8.3.0</strong></p>
+    </header>
+
+    <h2>1. Hasil Pengukuran Benchmark Aktual</h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 32%;">Metric</th>
+          <th style="width: 18%;" class="text-right">Before Migration</th>
+          <th style="width: 28%;" class="text-right">After Migration</th>
+          <th style="width: 22%;" class="text-right">Status / Akselerasi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Cold Start (Vite Server Ready)</strong></td>
+          <td class="text-right tnum">N/A</td>
+          <td class="text-right tnum"><strong>1.108 ms</strong></td>
+          <td class="text-right" style="color: #15803d; font-weight: 600;">Server Ready</td>
+        </tr>
+        <tr>
+          <td><strong>Cold Start (First HTTP 200 OK)</strong></td>
+          <td class="text-right tnum">N/A</td>
+          <td class="text-right tnum"><strong>5.877 ms</strong></td>
+          <td class="text-right" style="color: #15803d; font-weight: 600;">First Response</td>
+        </tr>
+        <tr>
+          <td><strong>HMR Test 1</strong></td>
+          <td class="text-right tnum">N/A</td>
+          <td class="text-right tnum"><strong>9,1 ms</strong></td>
+          <td class="text-right" style="color: #15803d; font-weight: 600;">Fast Refresh</td>
+        </tr>
+        <tr>
+          <td><strong>HMR Test 2</strong></td>
+          <td class="text-right tnum">N/A</td>
+          <td class="text-right tnum"><strong>4,6 ms</strong></td>
+          <td class="text-right" style="color: #15803d; font-weight: 600;">Fast Refresh</td>
+        </tr>
+        <tr>
+          <td><strong>HMR Test 3</strong></td>
+          <td class="text-right tnum">N/A</td>
+          <td class="text-right tnum"><strong>4,7 ms</strong></td>
+          <td class="text-right" style="color: #15803d; font-weight: 600;">Fast Refresh</td>
+        </tr>
+        <tr>
+          <td><strong>Average HMR Response (3 Tests)</strong></td>
+          <td class="text-right tnum">N/A</td>
+          <td class="text-right tnum"><strong>6,1 ms</strong></td>
+          <td class="text-right" style="color: #15803d; font-weight: 600;">Instan (&lt; 10 ms)</td>
+        </tr>
+        <tr>
+          <td><strong>Production Build</strong></td>
+          <td class="text-right tnum">N/A</td>
+          <td class="text-right tnum"><strong>6.96 s</strong></td>
+          <td class="text-right" style="color: #15803d; font-weight: 600;">2307 modules</td>
+        </tr>
+        <tr>
+          <td><strong>Biome</strong></td>
+          <td class="text-right tnum">N/A</td>
+          <td class="text-right tnum"><strong>108 ms</strong></td>
+          <td class="text-right" style="color: #15803d; font-weight: 600;">77 files clean</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size: 7pt; color: #64748b; margin-top: -3px; margin-bottom: 7px; line-height: 1.3;">
+      *Catatan: 1.108 ms adalah waktu sampai Vite dev server menyatakan ready, sedangkan 5.877 ms adalah waktu sampai request HTTP pertama mendapatkan HTTP 200 OK. Rata-rata 6,1 ms diperoleh dari tiga kali pengujian HMR (Test 1: 9,1 ms; Test 2: 4,6 ms; Test 3: 4,7 ms) dan bukan merupakan waktu startup <code>pnpm run dev</code>. Baseline sebelum migrasi tidak diukur ulang karena build pipeline lama tidak tersedia pada project final (N/A).
+    </p>
+
+    <h2>2. Hasil Pemisahan Vendor Chunk (Vite manualChunks)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nama File Chunk</th>
+          <th class="text-right">Ukuran Asli</th>
+          <th class="text-right">Ukuran Gzip</th>
+          <th>Paket Dependensi Terisolasi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>vendor-react-DtB_o8jb.js</code></td>
+          <td class="text-right tnum">286,26 kB</td>
+          <td class="text-right tnum">94,53 kB</td>
+          <td>react, react-dom, react-router-dom</td>
+        </tr>
+        <tr>
+          <td><code>vendor-motion-B7cnhQgW.js</code></td>
+          <td class="text-right tnum">96,34 kB</td>
+          <td class="text-right tnum">32,39 kB</td>
+          <td>motion (Motion for React)</td>
+        </tr>
+        <tr>
+          <td><code>vendor-core-BZduKpRP.js</code></td>
+          <td class="text-right tnum">57,26 kB</td>
+          <td class="text-right tnum">13,34 kB</td>
+          <td>zod, zustand</td>
+        </tr>
+        <tr>
+          <td><code>vendor-DIos5NZ_.js</code></td>
+          <td class="text-right tnum">46,33 kB</td>
+          <td class="text-right tnum">14,65 kB</td>
+          <td>@tanstack/react-query & runtime helper</td>
+        </tr>
+        <tr>
+          <td><code>vendor-ui-DhG2kYNK.js</code></td>
+          <td class="text-right tnum">26,13 kB</td>
+          <td class="text-right tnum">8,53 kB</td>
+          <td>lucide-react, clsx, tailwind-merge, cva, @base-ui</td>
+        </tr>
+        <tr>
+          <td><code>index-DPJmUlrC.js</code></td>
+          <td class="text-right tnum">102,13 kB</td>
+          <td class="text-right tnum">26,09 kB</td>
+          <td>Kode aplikasi: halaman, dialog, router, & komponen</td>
+        </tr>
+        <tr>
+          <td><code>rolldown-runtime-Dik6OG8R.js</code></td>
+          <td class="text-right tnum">0,59 kB</td>
+          <td class="text-right tnum">0,36 kB</td>
+          <td>Rolldown bundler runtime</td>
+        </tr>
+        <tr>
+          <td><code>index-Co7X250R.css</code></td>
+          <td class="text-right tnum">58,49 kB</td>
+          <td class="text-right tnum">10,01 kB</td>
+          <td>Lembar gaya tema Tailwind CSS v4</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>3. Ringkasan Status Quality Gate & Validasi</h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 32%;">Item Pengujian</th>
+          <th style="width: 25%;">Perintah / Target</th>
+          <th style="width: 15%;">Status</th>
+          <th style="width: 28%;">Keterangan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>TypeScript Verification</strong></td>
+          <td><code>pnpm run typecheck</code></td>
+          <td><span class="badge-pass">PASS</span></td>
+          <td>0 error, 0 warning (Exit Code 0)</td>
+        </tr>
+        <tr>
+          <td><strong>Biome Quality Gate</strong></td>
+          <td><code>pnpm run lint</code></td>
+          <td><span class="badge-pass">PASS</span></td>
+          <td>77 file bersih dalam 108ms (Exit Code 0)</td>
+        </tr>
+        <tr>
+          <td><strong>Vite Production Build</strong></td>
+          <td><code>pnpm run build</code></td>
+          <td><span class="badge-pass">PASS</span></td>
+          <td>6.96 seconds (2307 modules)</td>
+        </tr>
+        <tr>
+          <td><strong>Manual Chunks</strong></td>
+          <td><code>vite.config.ts</code></td>
+          <td><span class="badge-pass">PASS</span></td>
+          <td>5 vendor chunk terisolasi</td>
+        </tr>
+        <tr>
+          <td><strong>SonarQube Configuration</strong></td>
+          <td><code>sonar-project.properties</code></td>
+          <td><span class="badge-ready">READY</span></td>
+          <td>Path eksklusi valid</td>
+        </tr>
+        <tr>
+          <td><strong>SonarQube Actual Scan</strong></td>
+          <td><code>sonar-scanner</code></td>
+          <td><span class="badge-ready">NOT EXECUTED</span></td>
+          <td>Server/runner belum aktif</td>
+        </tr>
+        <tr>
+          <td><strong>Unified Quality Gate</strong></td>
+          <td><code>pnpm run verify</code></td>
+          <td><span class="badge-pass">PASS</span></td>
+          <td>Semua tahapan lulus (Exit Code 0)</td>
+        </tr>
+        <tr>
+          <td><strong>Hot Module Replacement</strong></td>
+          <td><code>HMR Benchmark (3 Tests)</code></td>
+          <td><span class="badge-pass">PASS</span></td>
+          <td>Average HMR Response: 6,1 ms</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size: 7.2pt; color: #64748b; margin-top: -3px; margin-bottom: 5px; line-height: 1.35;">
+      *Catatan: Rata-rata 6,1 ms diperoleh dari tiga kali pengujian HMR dan bukan merupakan waktu startup <code>pnpm run dev</code>. Konfigurasi SonarQube telah disiapkan (READY), sedangkan actual server scan belum dieksekusi (NOT EXECUTED) karena server/runner SonarQube belum tersedia pada environment pengujian.
+    </p>
+
+    <div class="box">
+      <p class="box-title">Kesimpulan Kepatuhan Modul 8:</p>
+      <p style="font-size: 7.5pt; line-height: 1.35; margin: 0 0 3px 0;">
+        Seluruh komponen teknis yang dapat diverifikasi pada environment pengujian telah terpenuhi. Konfigurasi SonarQube telah disiapkan, sedangkan actual server scan belum dieksekusi karena server/runner SonarQube belum tersedia pada environment pengujian.
+      </p>
+      <p style="font-size: 6.8pt; color: #475569; margin: 0; line-height: 1.25;">
+        <strong>Status:</strong> TypeScript: PASS • Biome: PASS • Vite Build: PASS • Manual Chunks: PASS • SonarQube Configuration: READY • SonarQube Actual Scan: NOT EXECUTED
+      </p>
+    </div>
+
+    <footer>
+      <span>Dokumen Resmi Praktikum Modul 8 • Statistics Story AI</span>
+      <span>Halaman 2 dari 2</span>
+    </footer>
+  </div>
+
+</body>
+</html>

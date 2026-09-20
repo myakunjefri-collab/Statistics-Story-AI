@@ -1,0 +1,272 @@
+UNIVERSITAS SEBELAS MARET
+SEKOLAH VOKASI
+PROGRAM STUDI D3 TEKNIK INFORMATIKA KABUPATEN MADIUN
+DOKUMEN SPESIFIKASI KEBUTUHAN PERANGKAT LUNAK (SKPL)
+(Software Requirements Specification – SRS)
+untuk
+“STATISTICS STORY AI”
+[Sistem Berbasis AI untuk Mengubah Hasil Statistik menjadi Narasi
+dan Visualisasi yang Mudah Dipahami]
+Version 1.0 approved
+Mata Kuliah: Manajemen Proyek Teknologi Informasi
+Disusun oleh: Jefri Nur Cholis Hidayat (V3925026)
+Kharindra Argiansya(V3925027)
+Tanggal: 24 – 08 – 2026
+MADIUN, 2026
+LEMBAR PENGESAHAN
+Dokumen Spesifikasi Kebutuhan Perangkat Lunak (SKPL) untuk mata kuliah Manajemen Proyek Teknologi Informasi ini disusun sebagai bahan pembelajaran dan evaluasi tugas kelompok pada Program Studi D3 Teknik Informatika Kabupaten Madiun, Sekolah Vokasi, Universitas Sebelas Maret, dengan rincian sebagai berikut:
+Mata Kuliah : Manajemen Proyek Teknologi Informasi
+Program Studi: D3 Teknik Informatika Kab. Madiun
+Nama Proyek : Statistics Story AI
+Penyusun :
+Jefri Nur Cholis Hidayat (NIM. V3925026)
+Kharindra Argiansya(NIM. V3925027)
+Dosen Pengampu :
+Nama Lengkap dan Gelar : Darmawan Lahru Riatma, S.Kom., M.MT
+NIP : 1991091420200801
+Madiun, 24 Agustus 2026
+[TABLE]
+DAFTAR ISI
+DAFTAR TABEL
+TOC \h \z \c "Tabel 1." Tabel 1. 1 Glossary / Daftar Istilah Penting PAGEREF _Toc238798242 \h 3 TOC \h \z \c "Tabel 2."
+Tabel 2. 1 Karakteristik & Stakeholder Aktor Sistem PAGEREF _Toc238798252 \h 5 TOC \h \z \c "Tabel 3."
+Tabel 3. 1 Kebutuhan Fungsional (Functional Requirements) PAGEREF _Toc238798268 \h 8
+Tabel 3. 2 Kebutuhan Non Fungsional (Non Functional Requirements) PAGEREF _Toc238798269 \h 10 TOC \h \z \c "Tabel 5."
+Tabel 5. 1 Spesifikasi Infrastruktur (Technology Stack) — Asumsi Perancangan PAGEREF _Toc238798292 \h 22 TOC \h \z \c "Tabel 6."
+Tabel 6. 1 Kamus Data PAGEREF _Toc238798303 \h 24
+Tabel 6. 2 Struktur Tabel pengguna PAGEREF _Toc238798304 \h 26
+Tabel 6. 3 Struktur Tabel analisis PAGEREF _Toc238798305 \h 26
+Tabel 6. 4 Struktur Tabel dataset_input PAGEREF _Toc238798306 \h 27
+Tabel 6. 5 Struktur Tabel hasil_statistik PAGEREF _Toc238798307 \h 27
+Tabel 6. 6 Struktur Tabel narasi_interpretasi PAGEREF _Toc238798308 \h 28
+Tabel 6. 7 Struktur Tabel visualisasi PAGEREF _Toc238798309 \h 28
+Tabel 6. 8 Struktur Tabel contoh_kasus PAGEREF _Toc238798310 \h 29 TOC \h \z \c "Tabel 7."
+Tabel 7. 1 Daftar Halaman — Role Mahasiswa/Dosen PAGEREF _Toc238798312 \h 30
+Tabel 7. 2 Deskripsi Antarmuka & Navigasi PAGEREF _Toc238798313 \h 30 TOC \h \z \c "Tabel 8."
+Tabel 8. 1 Risiko Sistem dan Potensi Dampak PAGEREF _Toc238798322 \h 32
+Tabel 8. 2 Mekanisme Keamanan Sistem PAGEREF _Toc238798323 \h 33
+Tabel 8. 3 Rencana Pengujian (Test Case) PAGEREF _Toc238798324 \h 34
+Tabel 8. 4 Kuesioner System Usability Scale (SUS) PAGEREF _Toc238798325 \h 35
+DAFTAR GAMBAR
+TOC \h \z \c "Gambar 4." Gambar 4.1 Swimlane Diagram Sistem PAGEREF _Toc238798382 \h 12
+Gambar 4.2 Flowchart Input & Validasi Data PAGEREF _Toc238798383 \h 13
+Gambar 4.3 Flowchart Analisis Statistik & Interpretasi AI PAGEREF _Toc238798384 \h 14
+Gambar 4.4 Diagram Konteks PAGEREF _Toc238798385 \h 14
+Gambar 4.5 DFD Level 0 PAGEREF _Toc238798386 \h 15
+Gambar 4.6 Use Case Diagram PAGEREF _Toc238798387 \h 16
+Gambar 4.7 Activity Diagram PAGEREF _Toc238798388 \h 17
+Gambar 4.8 Sequence Diagram PAGEREF _Toc238798389 \h 18
+Gambar 4.9 Class Diagram PAGEREF _Toc238798390 \h 19 TOC \h \z \c "Gambar 5."
+Gambar 5.1 Desain Arsitektur Three Tier PAGEREF _Toc238798391 \h 20
+Gambar 5.2 Alur Integrasi Layanan AI Pihak Ketiga PAGEREF _Toc238798392 \h 21 TOC \h \z \c "Gambar 6."
+Gambar 6.1 Conceptual Data Model (ERD) PAGEREF _Toc238798398 \h 25
+BAB I PENDAHULUAN
+A. Latar Belakang
+Dalam praktik perkuliahan statistika dan metodologi penelitian, mahasiswa umumnya sudah terbiasa menggunakan perangkat lunak seperti Excel, SPSS, Python, maupun R untuk melakukan perhitungan statistik deskriptif, uji t, korelasi, hingga regresi sederhana. Namun, proses belajar sering berhenti pada tahap “menghasilkan angka” mahasiswa jarang dilatih untuk menerjemahkan angka tersebut menjadi kesimpulan yang bermakna secara kontekstual. Akibatnya, banyak laporan atau tugas akhir yang menampilkan tabel output statistik tanpa interpretasi yang tepat, atau interpretasinya keliru karena mahasiswa tidak sepenuhnya memahami makna di balik nilai p value, koefisien regresi, maupun signifikansi statistik. Kondisi ini menunjukkan adanya kesenjangan (gap) antara kemampuan teknis (menghitung) dan kemampuan analitis komunikatif (menjelaskan).
+Untuk memahami akar permasalahan tersebut secara sistematis, dilakukan analisis menggunakan kerangka PIECES (Performance, Information, Economics, Control, Efficiency, Service) sebagai berikut:
+Performance Setelah memperoleh output dari SPSS/Excel/R, mahasiswa masih harus mencari referensi tambahan (buku, internet, atau bertanya kepada dosen) untuk memahami makna angka tersebut, sehingga durasi penyelesaian tugas maupun skripsi menjadi lebih panjang dari yang seharusnya.
+Information Output statistik yang dihasilkan perangkat lunak konvensional (tabel angka, koefisien, p value) bersifat teknis dan tidak menyediakan informasi kontekstual secara otomatis, sehingga informasi yang diterima mahasiswa tidak cukup lengkap untuk dijadikan dasar pengambilan kesimpulan.
+Economics Kesalahan interpretasi yang berulang menyebabkan revisi laporan maupun skripsi berkali kali, yang secara tidak langsung menambah beban waktu, tenaga, dan biaya (bimbingan tambahan, pencetakan ulang dokumen) bagi mahasiswa maupun dosen pembimbing.
+Control Belum ada mekanisme yang membantu memvalidasi atau mengarahkan pemahaman mahasiswa terhadap hasil statistik sebelum dituangkan ke dalam laporan, sehingga kesalahan interpretasi baru diketahui setelah proses bimbingan berlangsung.
+Efficiency Proses menerjemahkan angka menjadi narasi masih dilakukan secara manual dan berulang oleh setiap mahasiswa, padahal pola penjelasan untuk jenis uji statistik yang sama sesungguhnya dapat distandardisasi dan dipercepat dengan bantuan sistem berbasis kecerdasan buatan (AI).
+Service Dosen pengampu mata kuliah statistika/metodologi penelitian memiliki keterbatasan waktu untuk menjelaskan interpretasi hasil statistik secara personal kepada setiap mahasiswa, sehingga layanan bimbingan menjadi kurang optimal terutama pada kelas dengan jumlah mahasiswa yang besar.
+Berdasarkan analisis PIECES tersebut, diperlukan sebuah sistem bernama Statistics Story AI yang mampu menjembatani kesenjangan antara kemampuan menghitung dan kemampuan menjelaskan hasil statistik, melalui otomatisasi pembuatan narasi interpretatif, visualisasi grafik, dan contoh kasus berbasis kecerdasan buatan, sehingga proses pembelajaran statistika menjadi lebih bermakna bagi mahasiswa.
+B. Tujuan Sistem
+Tujuan utama pengembangan sistem Statistics Story AI adalah sebagai berikut:
+Mengubah hasil/output statistik (deskriptif, uji t, korelasi, dan regresi sederhana) menjadi narasi interpretatif yang mudah dipahami mahasiswa.
+Menyediakan visualisasi grafik otomatis yang relevan dengan jenis analisis yang dipilih, sebagai pelengkap narasi.
+Membantu mahasiswa memahami makna statistik (signifikansi, arah hubungan, kekuatan pengaruh) melalui contoh kasus atau analogi nyata.
+Menjadi media pembelajaran tambahan yang dapat digunakan mahasiswa secara mandiri maupun oleh dosen sebagai alat bantu mengajar di kelas.
+Menghasilkan prototipe yang dapat diuji tingkat efektivitas dan pemahamannya kepada minimal 20 responden mahasiswa dalam satu semester perkuliahan, sebagai bukti awal (proof of concept) kelayakan sistem.
+C. Ruang Lingkup Sistem
+Ruang lingkup sistem dibagi menjadi dua kategori, yaitu hal hal yang termasuk dalam pengembangan (in scope) dan hal hal yang secara sengaja tidak dikerjakan pada tahap prototipe ini (out of scope), sesuai dengan batasan yang telah ditetapkan pada Project Charter Statistics Story AI.
+In Scope (Termasuk dalam Sistem)
+Analisis statistik dasar: statistik deskriptif, uji t, korelasi, dan regresi sederhana.
+Input data melalui upload file (CSV/Excel) maupun input manual.
+Konversi hasil analisis menjadi narasi interpretatif berbahasa Indonesia dan/atau Inggris menggunakan model bahasa (AI).
+Visualisasi data otomatis dalam bentuk grafik batang, histogram, dan scatter plot.
+Penyajian contoh kasus/analogi nyata untuk memperjelas makna hasil statistik.
+Out of Scope (Tidak Termasuk dalam Sistem)
+Analisis statistik lanjutan (multivariat kompleks, machine learning predictive modeling).
+Integrasi langsung dengan perangkat lunak statistik berbayar seperti SPSS, SAS, atau Minitab.
+Pengembangan aplikasi versi mobile (fokus awal hanya web/desktop prototype).
+Fitur kolaborasi multi user secara real time.
+Fitur yang tidak berkaitan dengan tujuan pembelajaran statistik, seperti marketplace, sistem pembayaran, chat sosial, maupun sistem akademik umum.
+D. Daftar Istilah Penting (Glossary)
+Tabel 1. 1 Glossary / Daftar Istilah Penting
+[TABLE]
+BAB II DESKRIPSI UMUM SISTEM
+A. Gambaran Umum Sistem
+Statistics Story AI merupakan sistem berbasis web yang bertujuan mengubah hasil atau output statistik menjadi narasi interpretatif, visualisasi grafik, dan contoh kasus yang mudah dipahami. Sistem ini ditujukan sebagai media pembelajaran pendukung mata kuliah Statistika dan Metodologi Penelitian, dan dioperasikan melalui peramban (browser) pada perangkat laptop/komputer pengguna.
+Secara umum, alur penggunaan sistem mengikuti tahapan berikut:
+Input Data/Output Statistik → Validasi Data → Pemilihan Jenis Analisis → Pemrosesan Statistik → Pemrosesan AI (Interpretasi) → Narasi & Visualisasi → Contoh Kasus → Hasil untuk Pengguna
+Pengguna dapat memasukkan data mentah (melalui upload berkas CSV/Excel atau input manual) maupun output statistik yang sudah dihitung sebelumnya. Sistem kemudian memvalidasi data, melakukan pemrosesan statistik sesuai jenis analisis yang dipilih, dan mengirimkan hasil perhitungan ke layanan AI untuk diterjemahkan menjadi narasi interpretatif. Sistem selanjutnya menyajikan tiga keluaran sekaligus kepada pengguna: (1) narasi interpretatif, (2) visualisasi grafik otomatis, dan (3) contoh kasus/analogi yang relevan.
+B. Karakteristik & Stakeholder Aktor Sistem
+Identifikasi aktor sistem dilakukan berdasarkan Project Charter Statistics Story AI, bukan berdasarkan asumsi umum. Sistem ini tidak menyertakan aktor Administrator sebagai pengelola sistem penuh, karena Project Charter tidak menyebutkan kebutuhan pengelolaan pengguna/konten berskala besar untuk sebuah prototipe satu semester; peran administratif teknis (mis. pemeliharaan server) cukup ditangani oleh Tim Pengembang di luar antarmuka pengguna akhir. Aktor yang teridentifikasi adalah sebagai berikut:
+Tabel 2. 1 Karakteristik & Stakeholder Aktor Sistem
+[TABLE]
+C. Metode Pengembangan Sistem (SDLC)
+Metodologi pengembangan yang dipilih untuk proyek Statistics Story AI adalah Agile dengan kerangka kerja Scrum. Pemilihan metode ini didasarkan pada beberapa pertimbangan berikut:
+Proyek dikerjakan oleh tim kecil (2 mahasiswa) dalam batasan waktu satu semester perkuliahan, sehingga dibutuhkan pendekatan iteratif yang memungkinkan penyesuaian fitur secara bertahap.
+Kebutuhan sistem khususnya kualitas narasi AI kemungkinan besar akan berkembang setelah dilakukan pengujian awal terhadap responden, sehingga pendekatan iteratif lebih sesuai dibandingkan Waterfall yang bersifat linear dan kaku.
+Scrum memungkinkan tim melakukan evaluasi bertahap (sprint review) terhadap akurasi narasi AI sebelum melanjutkan ke fitur berikutnya, sehingga risiko kesalahan interpretasi (hallucination) dapat dideteksi lebih awal.
+Tahapan SDLC yang diterapkan pada proyek ini adalah sebagai berikut:
+Requirement Gathering analisis kebutuhan berdasarkan Project Charter, wawancara informal dengan calon pengguna (mahasiswa/dosen), dan studi literatur terkait data storytelling.
+Sprint Planning pembagian kebutuhan fungsional ke dalam beberapa sprint (mis. Sprint 1: input & validasi data; Sprint 2: modul analisis statistik; Sprint 3: integrasi AI & narasi; Sprint 4: visualisasi & contoh kasus; Sprint 5: pengujian & evaluasi).
+Desain perancangan arsitektur sistem, basis data, dan antarmuka pengguna (UI/UX) untuk setiap sprint.
+Development implementasi fitur sesuai backlog sprint yang telah direncanakan.
+Testing pengujian fungsional pada setiap akhir sprint (unit testing sederhana dan pengujian skenario penggunaan).
+Sprint Review demonstrasi hasil sprint kepada dosen pengampu untuk mendapatkan umpan balik.
+Improvement/Retrospective perbaikan berdasarkan umpan balik sebelum melanjutkan ke sprint berikutnya, termasuk pengujian akhir kepada minimal 20 responden mahasiswa.
+BAB III ANALISIS KEBUTUHAN SISTEM
+A. Kebutuhan Fungsional (Functional Requirements FR)
+Kebutuhan fungsional Statistics Story AI dirumuskan agar seluruhnya berada dalam batas ruang lingkup (in scope) proyek sesuai Project Charter, tanpa penambahan fitur yang tidak relevan.
+Tabel 3. 1 Kebutuhan Fungsional (Functional Requirements)
+[TABLE]
+[ASUMSI PERANCANGAN] Fitur registrasi/login sederhana (FR 01) dan riwayat analisis (FR 16) tidak disebutkan secara eksplisit pada Project Charter. Fitur ini ditambahkan sebagai asumsi perancangan yang wajar untuk mendukung penyimpanan riwayat analisis per pengguna dan demonstrasi oleh dosen, dan tidak bertentangan dengan batasan proyek (bukan fitur kolaborasi real time maupun sistem akademik yang kompleks).
+B. Kebutuhan Non Fungsional (Non Functional Requirements NFR)
+Tabel 3. 2 Kebutuhan Non Fungsional (Non Functional Requirements)
+[TABLE]
+BAB IV PEMODELAN PROSES BISNIS & STRUKTUR LOGIS
+A. Bisnis Proses Sistem Saat Ini (As Is)
+Sebelum adanya Statistics Story AI, proses pemahaman hasil statistik oleh mahasiswa berjalan secara manual sebagai berikut:
+Mahasiswa memiliki dataset atau telah menjalankan perhitungan statistik menggunakan Excel/SPSS/Python/R.
+Mahasiswa melihat tabel output statistik (angka, koefisien, p value) yang dihasilkan software tersebut.
+Mahasiswa mencari arti dari output tersebut secara manual, misalnya membaca buku referensi atau mencari di internet.
+Mahasiswa mencoba memahami hasil secara mandiri, yang sering kali memakan waktu lama dan berisiko salah tafsir.
+Mahasiswa menuliskan kesimpulan pada laporan/skripsi berdasarkan pemahamannya sendiri.
+Apabila interpretasi keliru, kesalahan baru diketahui saat proses bimbingan dengan dosen, sehingga mahasiswa harus melakukan revisi berulang.
+Bottleneck utama pada proses As Is terletak pada tahap pencarian makna hasil statistik secara manual dan ketiadaan validasi cepat sebelum laporan disusun, yang menyebabkan potensi salah interpretasi tidak terdeteksi sejak awal.
+B. Bisnis Proses Sistem Usulan (To Be)
+Dengan adanya Statistics Story AI, proses tersebut disederhanakan dan dipercepat sebagai berikut:
+Mahasiswa melakukan login, lalu meng input data atau meng upload berkas (CSV/Excel).
+Sistem melakukan validasi data secara otomatis.
+Mahasiswa memilih jenis analisis yang diinginkan (deskriptif, uji t, korelasi, atau regresi sederhana).
+Sistem melakukan perhitungan statistik sesuai pilihan pengguna.
+Sistem mengirim hasil perhitungan ke layanan AI, yang kemudian menghasilkan narasi interpretatif.
+Sistem menampilkan narasi, visualisasi grafik, dan contoh kasus secara bersamaan kepada pengguna.
+Mahasiswa memahami makna hasil statistik secara langsung dan dapat menggunakannya sebagai bahan penyusunan laporan/skripsi.
+Perbaikan utama pada proses To Be adalah tersedianya interpretasi otomatis dan tervalidasi sejak tahap analisis, sehingga potensi salah tafsir dapat diminimalkan sebelum laporan disusun, tanpa perlu menunggu sesi bimbingan dengan dosen.
+C. Swimlane Diagram Sistem
+Swimlane diagram berikut menggambarkan pembagian aktivitas antara aktor Mahasiswa/Dosen, Sistem, dan Penyedia Layanan AI pada proses To Be.
+[TABLE]
+D. Flowchart Logika Fitur Utama
+Berikut disajikan flowchart untuk dua fitur utama sistem, yaitu (1) proses upload dan validasi data, dan (2) proses analisis statistik hingga penyajian narasi AI.
+[TABLE]
+[TABLE]
+E. Data Flow Diagram (DFD)
+i. Diagram Konteks
+Diagram konteks menampilkan Statistics Story AI sebagai satu proses tunggal beserta entitas eksternal yang berinteraksi dengannya.
+[TABLE]
+ii. DFD Level 0
+DFD Level 0 menguraikan proses tunggal pada diagram konteks menjadi proses proses utama beserta penyimpanan data (data store) yang terlibat.
+[TABLE]
+F. Pemodelan Berorientasi Objek (UML)
+i. Use Case Diagram
+Use case diagram berikut menampilkan seluruh aktor beserta use case utama, termasuk relasi include dan extend. Notasi disajikan dalam bentuk kode PlantUML agar dapat langsung dirender.
+[TABLE]
+ii. Activity Diagram
+Activity diagram berikut menggambarkan alur aktivitas utama sistem, yaitu proses analisis data hingga penyajian hasil kepada pengguna.
+[TABLE]
+iii. Sequence Diagram
+Sequence diagram berikut menggunakan combined fragment ALT (kondisi valid/tidak valid), OPT (opsi menyimpan riwayat), dan LOOP (percobaan ulang saat AI gagal merespons).
+[TABLE]
+iv. Class Diagram
+Class diagram berikut menampilkan kelas kelas utama beserta atribut, metode, dan relasi antar kelas pada sistem.
+[TABLE]
+BAB V ARSITEKTUR SISTEM & INFRASTRUKTUR TEKNIS
+A. Desain Arsitektur Sistem (Three Tier Architecture)
+Statistics Story AI dirancang menggunakan arsitektur Three Tier yang memisahkan tanggung jawab sistem ke dalam tiga lapisan, yaitu Client Tier, Application/Web Server Tier, dan Database Server Tier.
+[TABLE]
+Client Tier berupa browser pada perangkat laptop/komputer pengguna, berfungsi menampilkan antarmuka dan menerima interaksi pengguna (input data, pemilihan analisis, dan tampilan hasil).
+Application/Web Server Tier menangani logika bisnis sistem, meliputi autentikasi, perhitungan statistik, orkestrasi permintaan ke layanan AI, dan pembentukan visualisasi grafik.
+Database Server Tier menyimpan seluruh data persisten sistem, meliputi data pengguna, dataset, hasil statistik, narasi interpretasi, dan riwayat analisis.
+B. Integrasi Layanan Pihak Ketiga (Third Party API)
+Sistem mengintegrasikan satu layanan pihak ketiga utama, yaitu Penyedia Layanan AI (Large Language Model API), yang berfungsi menerjemahkan hasil perhitungan statistik menjadi narasi interpretatif serta menyusun contoh kasus. Project Charter tidak menyebutkan nama penyedia API tertentu, sehingga pemilihan penyedia layanan AI spesifik merupakan keputusan teknis yang akan ditentukan pada tahap implementasi.
+[ASUMSI PERANCANGAN] Nama/penyedia layanan AI spesifik (mis. layanan model bahasa tertentu) belum ditentukan pada Project Charter. Pemilihan penyedia akan mempertimbangkan keterbatasan biaya sebagaimana disebutkan pada bagian Constraint Project Charter.
+Alur integrasi API dapat digambarkan sebagai berikut: pengguna mengirim permintaan analisis melalui Application Tier, Application Tier melakukan perhitungan statistik secara internal, kemudian hanya mengirimkan ringkasan hasil statistik (bukan data mentah pribadi pengguna) ke API AI eksternal untuk diterjemahkan menjadi narasi, dan menerima kembali narasi tersebut untuk ditampilkan kepada pengguna.
+[TABLE]
+Penyedia Layanan AI berperan murni sebagai mesin penerjemah bahasa (bukan sebagai basis data), sehingga tidak menyimpan data pengguna secara permanen di sisi layanan tersebut.
+C. Spesifikasi Infrastruktur (Technology Stack)
+Karena Project Charter tidak menetapkan teknologi implementasi secara spesifik, seluruh rincian teknologi berikut merupakan Asumsi Perancangan yang dipilih agar realistis untuk prototipe mahasiswa satu semester, dan dapat disesuaikan pada tahap implementasi tanpa mengubah kebutuhan fungsional yang telah dirumuskan pada Bab III.
+Tabel 5. 1 Spesifikasi Infrastruktur (Technology Stack) — Asumsi Perancangan
+[TABLE]
+BAB VI KEBUTUHAN DATA & STRUKTUR BASIS DATA
+A. Identifikasi & Kamus Data
+Tabel 6. 1 Kamus Data
+[TABLE]
+B. Conceptual Data Model (CDM / ERD)
+Berikut disajikan ERD konseptual yang menampilkan entitas, atribut utama, dan relasi antar entitas tanpa detail tipe data fisik.
+[TABLE]
+C. Physical Data Model (PDM / Skema Database Fisik)
+PDM berikut menampilkan struktur tabel relasional lengkap dengan tipe data, primary key (PK), foreign key (FK), serta batasan (constraint) yang konsisten dengan ERD pada bagian sebelumnya. Struktur ini merupakan Asumsi Perancangan pada level implementasi basis data.
+Tabel 6. 2 Struktur Tabel pengguna
+[TABLE]
+Tabel 6. 3 Struktur Tabel analisis
+[TABLE]
+Tabel 6. 4 Struktur Tabel dataset_input
+[TABLE]
+Tabel 6. 5 Struktur Tabel hasil_statistik
+[TABLE]
+Tabel 6. 6 Struktur Tabel narasi_interpretasi
+[TABLE]
+Tabel 6. 7 Struktur Tabel visualisasi
+[TABLE]
+Tabel 6. 8 Struktur Tabel contoh_kasus
+[TABLE]
+BAB VII PERANCANGAN ANTARMUKA (UI/UX)
+A. Desain Interface (High Fidelity Mockup)
+i. Role Mahasiswa / Dosen (Pengguna Utama & Sekunder)
+Tabel 7. 1 Daftar Halaman — Role Mahasiswa/Dosen
+[TABLE]
+B. Deskripsi Antarmuka & Navigasi Fitur
+Tabel 7. 2 Deskripsi Antarmuka & Navigasi
+[TABLE]
+BAB VIII KEAMANAN, PENGUJIAN, DAN BATASAN SISTEM
+A. Batasan Sistem
+Batasan sistem diturunkan langsung dari bagian Constraint dan Out of Scope pada Project Charter Statistics Story AI:
+Pengembangan dibatasi waktu satu semester perkuliahan, sehingga cakupan fitur pada prototipe ini bersifat realistis dan terbatas pada kebutuhan inti.
+Penggunaan layanan AI berbayar dibatasi oleh anggaran tim pengembang; jika diperlukan model dengan kapasitas lebih besar, hal ini bergantung pada ketersediaan biaya.
+Sistem hanya dapat diakses melalui browser berbasis web pada perangkat laptop/komputer; tidak tersedia versi aplikasi mobile pada tahap ini.
+Sistem tidak menangani analisis statistik lanjutan (multivariat kompleks, machine learning predictive modeling).
+Sistem tidak terintegrasi langsung dengan perangkat lunak statistik berbayar seperti SPSS, SAS, atau Minitab.
+Sistem tidak mendukung kolaborasi multi user secara real time.
+Sistem membutuhkan koneksi internet aktif untuk dapat memproses permintaan interpretasi ke layanan AI eksternal.
+Akurasi narasi bergantung pada kualitas data yang diinput pengguna serta kemampuan model AI yang digunakan; sistem tidak menjamin 100% ketepatan interpretasi (sesuai risiko hallucination pada Project Charter).
+Selain batasan di atas, berikut disajikan risiko utama sistem yang diturunkan langsung dari bagian Initial Risk pada Project Charter Statistics Story AI, beserta potensi dampaknya terhadap keberlangsungan sistem.
+Tabel 8. 1 Risiko Sistem dan Potensi Dampak
+[TABLE]
+B. Mekanisme Keamanan Sistem (Security Control)
+Tabel 8. 2 Mekanisme Keamanan Sistem
+[TABLE]
+Khusus untuk berkas CSV/Excel yang diunggah, sistem melakukan validasi struktur kolom, tipe data pada setiap kolom (numerik/kategorikal), serta pembatasan ukuran berkas sebelum data diteruskan ke modul analisis statistik, guna mencegah kegagalan proses maupun potensi berkas berbahaya.
+C. Rencana Pengujian Validasi Kebutuhan (System Testing Plan)
+Tabel 8. 3 Rencana Pengujian (Test Case)
+[TABLE]
+Selain pengujian fungsional, dilakukan pula pengujian usability menggunakan kuesioner System Usability Scale (SUS) untuk mengukur tingkat kemudahan penggunaan sistem oleh minimal 20 responden mahasiswa, sesuai target pada Project Charter.
+Tabel 8. 4 Kuesioner System Usability Scale (SUS)
+[TABLE]
+*) Pernyataan negatif (skor dibalik saat penghitungan). Interpretasi skor SUS: Marginal (< 68), Good (68 – 80.3), Excellent (> 80.3).
+BAB IX PENUTUP & DAFTAR PUSTAKA
+A. Kesimpulan
+Dokumen Spesifikasi Kebutuhan Perangkat Lunak (SKPL) ini menguraikan analisis kebutuhan sistem Statistics Story AI, yaitu sistem berbasis AI yang mengubah hasil statistik deskriptif, uji t, korelasi, dan regresi sederhana menjadi narasi interpretatif, visualisasi grafik, dan contoh kasus yang mudah dipahami mahasiswa. Berdasarkan analisis pada Bab I hingga Bab VIII, dapat disimpulkan bahwa:
+Sistem dikembangkan untuk menjembatani kesenjangan antara kemampuan menghitung statistik dan kemampuan menginterpretasikan maknanya, sebagaimana dirumuskan dalam Problem Statement pada Project Charter.
+Sistem memiliki 16 kebutuhan fungsional (FR 01 s.d. FR 16) dan 8 kategori kebutuhan non fungsional (NFR 01 s.d. NFR 08) yang seluruhnya berada dalam batas ruang lingkup proyek.
+Aktor sistem terdiri atas Mahasiswa (pengguna utama), Dosen/Asisten Dosen (pengguna sekunder), dan Penyedia Layanan AI sebagai aktor eksternal, tanpa peran Administrator karena tidak dibutuhkan secara logis pada skala prototipe ini.
+Arsitektur sistem menggunakan pendekatan Three Tier dengan integrasi layanan AI pihak ketiga sebagai mesin penerjemah narasi, tanpa memperlakukan layanan tersebut sebagai basis data.
+Seluruh pemodelan (DFD, UML, ERD/PDM) telah disusun secara konsisten, dengan aktor, fitur, dan entitas data yang saling selaras satu sama lain.
+B. Saran Pengembangan
+Berikut adalah saran pengembangan sistem yang realistis untuk tahap lanjutan, tanpa memasukkan kembali hal hal yang telah ditetapkan sebagai Out of Scope pada versi prototipe ini:
+Penambahan jenis analisis statistik dasar lain (mis. ANOVA satu arah) apabila kebutuhan pengguna berkembang, dengan tetap mempertimbangkan kompleksitas implementasi.
+Peningkatan evaluasi kualitas narasi AI melalui pengujian yang lebih luas dan mendalam terhadap akurasi interpretasi statistik.
+Penambahan dukungan bahasa selain Indonesia dan Inggris apabila dibutuhkan oleh institusi pendidikan lain.
+Peningkatan akurasi visualisasi dengan menambahkan jenis grafik lain sesuai kebutuhan pembelajaran.
+Eksplorasi integrasi pembelajaran (mis. tautan ke modul pembelajaran statistik) sebagai pengembangan jangka panjang, setelah prototipe inti terbukti efektif.
+Pengembangan versi aplikasi mobile dan fitur kolaborasi multi user dapat dipertimbangkan pada iterasi berikutnya, mengingat kedua hal ini secara sengaja belum dikerjakan pada versi prototipe ini.
+C. Daftar Pustaka / Referensi Standar
+International Organization for Standardization/International Electrotechnical Commission/Institute of Electrical and Electronics Engineers. (2011). ISO/IEC/IEEE 29148:2011 — Systems and Software Engineering: Life Cycle Processes — Requirements Engineering. IEEE.
+Sommerville, I. (2016). Software Engineering (10th ed.). Pearson Education.
+Pressman, R. S., & Maxim, B. R. (2020). Software Engineering: A Practitioner's Approach (9th ed.). McGraw Hill Education.
+Fowler, M. (2004). UML Distilled: A Brief Guide to the Standard Object Modeling Language (3rd ed.). Addison Wesley.
+Brooke, J. (1996). SUS: A 'quick and dirty' usability scale. Usability Evaluation in Industry, 189, 4–7.
+Schwaber, K., & Sutherland, J. (2020). The Scrum Guide: The Definitive Guide to Scrum — The Rules of the Game. Scrum.org.
