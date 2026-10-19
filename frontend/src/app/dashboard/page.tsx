@@ -5,15 +5,17 @@ import Link from "next/link";
 import { AppNavbar } from "@/components/layout/AppNavbar";
 import { AnalysesApi } from "@/lib/api/analysesApi";
 import type { AnalysisRecord } from "@/lib/types/analysis";
-import { PlusCircle, FolderClock, ArrowRight, BarChart2, GitCompare, GitFork, TrendingUp, Sparkles, Server } from "lucide-react";
+import { PlusCircle, FolderClock, ArrowRight, BarChart2, GitCompare, GitFork, TrendingUp } from "lucide-react";
 import { getCurrentUser } from "@/lib/auth";
 
 export default function DashboardPage() {
   const [records, setRecords] = useState<AnalysisRecord[]>([]);
   const [loading, setLoading] = useState(true);
-  const user = getCurrentUser();
+  const [user, setUser] = useState<ReturnType<typeof getCurrentUser> | null>(null);
 
   useEffect(() => {
+    setUser(getCurrentUser());
+
     async function loadData() {
       try {
         const res = await AnalysesApi.listHistory(1, 5);
@@ -35,7 +37,7 @@ export default function DashboardPage() {
       <AppNavbar />
 
       <main className="max-w-7xl mx-auto px-4 md:px-8 py-8 space-y-8">
-        {/* Welcome Hero Banner */}
+        {/* Banner Sambutan */}
         <div className="border border-black bg-white p-6 md:p-10 relative overflow-hidden">
           <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div>
@@ -70,7 +72,7 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        {/* Quick Metric Cards */}
+        {/* Kartu Metrik */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div className="border border-black bg-white p-5">
             <div className="font-mono-tech text-[10px] text-black/50 uppercase font-bold">
@@ -110,7 +112,7 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        {/* Recent Analyses List */}
+        {/* Analisis Terbaru */}
         <div className="border border-black bg-white">
           <div className="bg-[#EFEFEF] border-b border-black px-6 py-4 flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -207,7 +209,7 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        {/* 4 Panduan Analisis Cepat */}
+        {/* Panduan Analisis */}
         <div>
           <div className="font-mono-tech text-xs font-bold text-black/60 uppercase mb-4">
             PANDUAN 4 JENIS ANALISIS STATISTIK (PRD STATISTICS STORY AI)

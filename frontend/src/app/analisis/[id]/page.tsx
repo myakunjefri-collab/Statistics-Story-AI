@@ -138,7 +138,7 @@ export default function DetailAnalisisPage({ params }: { params: Promise<{ id: s
             <div>
               <div className="flex items-center gap-2 mb-1.5">
                 <span className="font-mono-tech text-xs font-bold uppercase text-[#003BFF]">
-                  {analysis.jenis_analisis.replace("_", " ")}
+                  {(analysis.jenis_analisis ?? "deskriptif").replace(/[_-]/g, " ")}
                 </span>
                 <span className="text-black/30">·</span>
                 <span
